@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Felipe Ascari</title>
+
+    <style>
+      :root {
+        --bg: #0d1117;
+        --bg-soft: #161b22;
+        --text: #e6edf3;
+        --text-muted: #9da7b1;
+        --accent: #58a6ff;
+        --border: #30363d;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI",
+          Helvetica, Arial, sans-serif;
+        background-color: var(--bg);
+        color: var(--text);
+      }
+
+      .container {
+        max-width: 900px;
+        margin: 80px auto;
+        padding: 0 24px;
+      }
+
+      h1 {
+        font-size: 1.9rem;
+        margin-bottom: 1rem;
+      }
+
+      p {
+        color: var(--text-muted);
+        line-height: 1.6;
+        max-width: 760px;
+      }
+
+      a {
+        color: var(--accent);
+        text-decoration: none;
+      }
+
+      a:hover {
+        text-decoration: underline;
+      }
+
+      .links {
+        margin-top: 24px;
+      }
+
+      .links a {
+        margin-right: 20px;
+        font-size: 0.95rem;
+      }
+
+      section {
+        margin-top: 72px;
+      }
+
+      h2 {
+        font-size: 1.3rem;
+        margin-bottom: 24px;
+        border-bottom: 1px solid var(--border);
+        padding-bottom: 8px;
+      }
+
+      .repos {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+        gap: 16px;
+      }
+
+      .repo {
+        background: var(--bg-soft);
+        border: 1px solid var(--border);
+        border-radius: 8px;
+        padding: 16px;
+        transition: transform 0.15s ease, border-color 0.15s ease;
+      }
+
+      .repo:hover {
+        transform: translateY(-2px);
+        border-color: var(--accent);
+      }
+
+      .repo h3 {
+        font-size: 1rem;
+        margin: 0 0 8px 0;
+      }
+
+      .repo p {
+        font-size: 0.9rem;
+        margin: 0 0 12px 0;
+      }
+
+      .repo span {
+        font-size: 0.8rem;
+        color: var(--text-muted);
+      }
+
+      footer {
+        margin-top: 96px;
+        font-size: 0.8rem;
+        color: var(--text-muted);
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="container">
+      <h1>Hi there</h1>
+
+<p>
+  This is a small collection of projects I use to explore backend ideas in
+  practice. I'm passionate about technology and have over 20 years of
+  experience building backend systems, working mostly with distributed
+  architectures, APIs, and asynchronous messaging. Many of these projects
+  come from things I wanted to understand better, simplify, or rethink after
+  designing and operating real systems, especially around scalability,
+  reliability, and system behavior.
+</p>
+
+
+      <div class="links">
+        <a href="https://github.com/fascari" target="_blank">GitHub</a>
+        <a href="https://www.linkedin.com/in/felipe-ascari/" target="_blank"
+          >LinkedIn</a
+        >
+        <a
+          href="https://medium.com/@felipe.ascari_49171"
+          target="_blank"
+          >Medium</a
+        >
+      </div>
+
+      <section>
+        <h2>Selected projects</h2>
+
+        <div class="repos">
+          <div class="repo">
+            <h3>
+              <a
+                href="https://github.com/fascari/cashback-platform"
+                target="_blank"
+                >cashback-platform</a
+              >
+            </h3>
+            <p>
+              Cashback platform in Go designed to validate Web3, crypto, and
+              blockchain concepts using clean architecture and DDD.
+            </p>
+            <span>Go</span>
+          </div>
+
+          <div class="repo">
+            <h3>
+              <a
+                href="https://github.com/fascari/tcp-message-processor"
+                target="_blank"
+                >tcp-message-processor</a
+              >
+            </h3>
+            <p>
+              Stateful TCP-based message processing system with job distribution,
+              cryptographic validation, and asynchronous statistics processing.
+            </p>
+            <span>Go</span>
+          </div>
+
+          <div class="repo">
+            <h3>
+              <a
+                href="https://github.com/fascari/exchange-crypto-service-api"
+                target="_blank"
+                >exchange-crypto-service-api</a
+              >
+            </h3>
+            <p>
+              Service API for crypto exchange operations and integrations.
+            </p>
+            <span>Go</span>
+          </div>
+
+          <div class="repo">
+            <h3>
+              <a href="https://github.com/fascari/kv-store" target="_blank"
+                >kv-store</a
+              >
+            </h3>
+            <p>
+              Simple key-value storage implementation focusing on correctness
+              and internal behavior.
+            </p>
+            <span>Go</span>
+          </div>
+
+          <div class="repo">
+            <h3>
+              <a
+                href="https://github.com/fascari/go-runtime-demo"
+                target="_blank"
+                >go-runtime-demo</a
+              >
+            </h3>
+            <p>
+              Educational project focused on runtime and blockchain concepts,
+              keeping the implementation intentionally simple.
+            </p>
+            <span>Go</span>
+          </div>
+
+          <div class="repo">
+            <h3>
+              <a
+                href="https://github.com/fascari/offer-eligibility-service"
+                target="_blank"
+                >offer-eligibility-service</a
+              >
+            </h3>
+            <p>
+              Service responsible for evaluating offer eligibility based on
+              business rules and constraints.
+            </p>
+            <span>Go</span>
+          </div>
+        </div>
+      </section>
+
+      <footer>© <span id="year"></span> Felipe Ascari</footer>
+    </div>
+
+    <script>
+      document.getElementById("year").textContent =
+        new Date().getFullYear();
+    </script>
+  </body>
+</html>
