@@ -5,6 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Felipe Ascari</title>
 
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
     <style>
       :root {
         --bg: #0d1117;
@@ -27,9 +30,16 @@
         color: var(--text);
       }
 
+      img.header {
+        width: 100%;
+        max-height: 240px;
+        object-fit: cover;
+        display: block;
+      }
+
       .container {
         max-width: 900px;
-        margin: 80px auto;
+        margin: 64px auto 80px;
         padding: 0 24px;
       }
 
@@ -116,19 +126,25 @@
   </head>
 
   <body>
+    <!-- Header SVG -->
+    <img
+      src="/header.svg"
+      alt="System architecture header"
+      class="header"
+    />
+
     <div class="container">
       <h1>Hi there</h1>
 
-<p>
-  This is a small collection of projects I use to explore backend ideas in
-  practice. I'm passionate about technology and have over 20 years of
-  experience building backend systems, working mostly with distributed
-  architectures, APIs, and asynchronous messaging. Many of these projects
-  come from things I wanted to understand better, simplify, or rethink after
-  designing and operating real systems, especially around scalability,
-  reliability, and system behavior.
-</p>
-
+      <p>
+        This is a small collection of projects I use to explore backend ideas in
+        practice. I'm passionate about technology and have over 20 years of
+        experience building backend systems, working mostly with distributed
+        architectures, APIs, and asynchronous messaging. Many of these projects
+        come from things I wanted to understand better, simplify, or rethink
+        after designing and operating real systems, especially around
+        scalability, reliability, and system behavior.
+      </p>
 
       <div class="links">
         <a href="https://github.com/fascari" target="_blank">GitHub</a>
