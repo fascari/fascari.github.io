@@ -14,7 +14,9 @@
         --bg-soft: #161b22;
         --text: #e6edf3;
         --text-muted: #9da7b1;
-        --accent: #58a6ff;
+
+        --accent: #58a6ff;          /* projects */
+        --article-accent: #3fb950; /* Medium / articles */
         --border: #30363d;
       }
 
@@ -30,22 +32,53 @@
         color: var(--text);
       }
 
-      img.header {
+      /* Header */
+      .header {
+        height: 160px;
+        border-bottom: 1px solid var(--border);
+        display: flex;
+        align-items: flex-end;
+      }
+
+      .header-inner {
         width: 100%;
-        max-height: 240px;
-        object-fit: cover;
-        display: block;
+        max-width: 1120px;
+        margin: 0 auto 32px;
+        padding: 0 24px;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      }
+
+      .header-inner span {
+        width: 6px;
+        height: 6px;
+        background: var(--accent);
+        border-radius: 50%;
+      }
+
+      .header-inner hr {
+        flex: 1;
+        border: none;
+        border-top: 1px solid var(--border);
       }
 
       .container {
         max-width: 900px;
-        margin: 64px auto 80px;
+        margin: 64px auto 96px;
         padding: 0 24px;
       }
 
       h1 {
         font-size: 1.9rem;
         margin-bottom: 1rem;
+      }
+
+      h2 {
+        font-size: 1.3rem;
+        margin-bottom: 24px;
+        border-bottom: 1px solid var(--border);
+        padding-bottom: 8px;
       }
 
       p {
@@ -73,23 +106,17 @@
       }
 
       section {
-        margin-top: 72px;
+        margin-top: 80px;
       }
 
-      h2 {
-        font-size: 1.3rem;
-        margin-bottom: 24px;
-        border-bottom: 1px solid var(--border);
-        padding-bottom: 8px;
-      }
-
-      .repos {
+      /* Project cards */
+      .grid {
         display: grid;
         grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
         gap: 16px;
       }
 
-      .repo {
+      .card {
         background: var(--bg-soft);
         border: 1px solid var(--border);
         border-radius: 8px;
@@ -97,24 +124,73 @@
         transition: transform 0.15s ease, border-color 0.15s ease;
       }
 
-      .repo:hover {
+      .card:hover {
         transform: translateY(-2px);
         border-color: var(--accent);
       }
 
-      .repo h3 {
+      .card h3 {
         font-size: 1rem;
         margin: 0 0 8px 0;
       }
 
-      .repo p {
+      .card p {
         font-size: 0.9rem;
         margin: 0 0 12px 0;
       }
 
-      .repo span {
+      .card span {
         font-size: 0.8rem;
         color: var(--text-muted);
+      }
+
+      /* Articles (Medium) */
+      .articles {
+        display: flex;
+        flex-direction: column;
+        gap: 18px;
+        max-width: 760px;
+      }
+
+      .article {
+        padding: 18px 18px 18px 22px;
+        border-left: 3px solid var(--article-accent);
+        background: linear-gradient(
+          90deg,
+          rgba(63, 185, 80, 0.08),
+          transparent
+        );
+      }
+
+      .article h3 {
+        margin: 0 0 6px 0;
+        font-size: 1rem;
+      }
+
+      .article h3 a {
+        color: var(--text);
+      }
+
+      .article p {
+        margin: 0 0 10px 0;
+        font-size: 0.9rem;
+      }
+
+      .article-meta {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        font-size: 0.8rem;
+        color: var(--text-muted);
+      }
+
+      .medium-badge {
+        background: rgba(63, 185, 80, 0.15);
+        color: var(--article-accent);
+        padding: 2px 8px;
+        border-radius: 12px;
+        font-size: 0.75rem;
+        font-weight: 500;
       }
 
       footer {
@@ -126,12 +202,13 @@
   </head>
 
   <body>
-    <!-- Header SVG -->
-    <img
-      src="/header.svg"
-      alt="System architecture header"
-      class="header"
-    />
+    <!-- Header -->
+    <div class="header">
+      <div class="header-inner">
+        <span></span>
+        <hr />
+      </div>
+    </div>
 
     <div class="container">
       <h1>Hi there</h1>
@@ -151,115 +228,67 @@
         <a href="https://www.linkedin.com/in/felipe-ascari/" target="_blank"
           >LinkedIn</a
         >
-        <a
-          href="https://medium.com/@felipe.ascari_49171"
-          target="_blank"
+        <a href="https://medium.com/@felipe.ascari_49171" target="_blank"
           >Medium</a
         >
         <a
-          href="https://drive.google.com/file/d/1Dq7Rti6ck91FlnUe1sx__C9C0ACZID_5/view?usp=sharing"
+          href="https://drive.google.com/file/d/1Dq7Rti6ck91FlnUe1sx__C9C0ACZID_5/view"
           target="_blank"
           >Resume</a
         >
         <a
-          href="https://drive.google.com/file/d/1I1-UySYEKr4s8wvE5eDMWh_65aD8kBAy/view?usp=sharing"
+          href="https://drive.google.com/file/d/1I1-UySYEKr4s8wvE5eDMWh_65aD8kBAy/view"
           target="_blank"
           >Cover Letter</a
         >
       </div>
 
-
+      <!-- Projects -->
       <section>
         <h2>Selected projects</h2>
-
-        <div class="repos">
-          <div class="repo">
-            <h3>
-              <a
-                href="https://github.com/fascari/cashback-platform"
-                target="_blank"
-                >cashback-platform</a
-              >
-            </h3>
-            <p>
-              Cashback platform in Go designed to validate Web3, crypto, and
-              blockchain concepts using clean architecture and DDD.
-            </p>
+        <div class="grid">
+          <div class="card">
+            <h3><a href="https://github.com/fascari/cashback-platform" target="_blank">cashback-platform</a></h3>
+            <p>Cashback platform in Go designed to validate Web3, crypto, and blockchain concepts using clean architecture and DDD.</p>
             <span>Go</span>
           </div>
 
-          <div class="repo">
-            <h3>
-              <a
-                href="https://github.com/fascari/tcp-message-processor"
-                target="_blank"
-                >tcp-message-processor</a
-              >
-            </h3>
-            <p>
-              Stateful TCP-based message processing system with job distribution,
-              cryptographic validation, and asynchronous statistics processing.
-            </p>
+          <div class="card">
+            <h3><a href="https://github.com/fascari/tcp-message-processor" target="_blank">tcp-message-processor</a></h3>
+            <p>Stateful TCP-based message processing system with job distribution, cryptographic validation, and async statistics processing.</p>
             <span>Go</span>
           </div>
 
-          <div class="repo">
-            <h3>
-              <a
-                href="https://github.com/fascari/exchange-crypto-service-api"
-                target="_blank"
-                >exchange-crypto-service-api</a
-              >
-            </h3>
-            <p>
-              Service API for crypto exchange operations and integrations.
-            </p>
+          <div class="card">
+            <h3><a href="https://github.com/fascari/exchange-crypto-service-api" target="_blank">exchange-crypto-service-api</a></h3>
+            <p>Service API for crypto exchange operations and integrations.</p>
             <span>Go</span>
           </div>
 
-          <div class="repo">
-            <h3>
-              <a href="https://github.com/fascari/kv-store" target="_blank"
-                >kv-store</a
-              >
-            </h3>
-            <p>
-              Simple key-value storage implementation focusing on correctness
-              and internal behavior.
-            </p>
+          <div class="card">
+            <h3><a href="https://github.com/fascari/kv-store" target="_blank">kv-store</a></h3>
+            <p>Simple key-value storage implementation focused on correctness and internal behavior.</p>
             <span>Go</span>
           </div>
 
-          <div class="repo">
-            <h3>
-              <a
-                href="https://github.com/fascari/go-runtime-demo"
-                target="_blank"
-                >go-runtime-demo</a
-              >
-            </h3>
-            <p>
-              Educational project focused on runtime and blockchain concepts,
-              keeping the implementation intentionally simple.
-            </p>
+          <div class="card">
+            <h3><a href="https://github.com/fascari/go-runtime-demo" target="_blank">go-runtime-demo</a></h3>
+            <p>Educational project focused on runtime and blockchain concepts, keeping the implementation intentionally simple.</p>
             <span>Go</span>
           </div>
 
-          <div class="repo">
-            <h3>
-              <a
-                href="https://github.com/fascari/offer-eligibility-service"
-                target="_blank"
-                >offer-eligibility-service</a
-              >
-            </h3>
-            <p>
-              Service responsible for evaluating offer eligibility based on
-              business rules and constraints.
-            </p>
+          <div class="card">
+            <h3><a href="https://github.com/fascari/offer-eligibility-service" target="_blank">offer-eligibility-service</a></h3>
+            <p>Service responsible for evaluating offer eligibility based on business rules and constraints.</p>
             <span>Go</span>
           </div>
         </div>
+      </section>
+
+      <!-- Articles -->
+      <section>
+        <h2>Recent articles</h2>
+        <div id="articles" class="articles"></div>
       </section>
 
       <footer>© <span id="year"></span> Felipe Ascari</footer>
@@ -268,6 +297,39 @@
     <script>
       document.getElementById("year").textContent =
         new Date().getFullYear();
+
+      const feed =
+        "https://api.rss2json.com/v1/api.json?rss_url=https://medium.com/feed/@felipe.ascari_49171";
+
+      fetch(feed)
+        .then((res) => res.json())
+        .then((data) => {
+          const container = document.getElementById("articles");
+
+          data.items.slice(0, 3).forEach((item) => {
+            const date = new Date(item.pubDate).toLocaleDateString("en-US", {
+              year: "numeric",
+              month: "short",
+              day: "numeric",
+            });
+
+            const el = document.createElement("div");
+            el.className = "article";
+            el.innerHTML = `
+              <h3>
+                <a href="${item.link}" target="_blank">
+                  ${item.title}
+                </a>
+              </h3>
+              <p>${item.description.replace(/<[^>]+>/g, "").slice(0, 160)}...</p>
+              <div class="article-meta">
+                <span class="medium-badge">Medium</span>
+                <span>${date}</span>
+              </div>
+            `;
+            container.appendChild(el);
+          });
+        });
     </script>
   </body>
 </html>
