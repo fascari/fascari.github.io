@@ -1,15 +1,32 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
-  <rect width="64" height="64" rx="12" fill="#0d1117"/>
-
-  <g stroke="#58a6ff" stroke-width="3" fill="none" stroke-linecap="round">
-    <line x1="18" y1="32" x2="46" y2="32"/>
-    <line x1="32" y1="18" x2="32" y2="46"/>
-  </g>
-
-  <g fill="#58a6ff">
-    <circle cx="18" cy="32" r="4"/>
-    <circle cx="46" cy="32" r="4"/>
-    <circle cx="32" cy="18" r="4"/>
-    <circle cx="32" cy="46" r="4"/>
-  </g>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="none">
+  <!-- Base -->
+  <rect width="32" height="32" rx="7" fill="#080c12"/>
+  <!-- Subtle gradient wash -->
+  <rect width="32" height="32" rx="7" fill="url(#wash)"/>
+  <!-- Border ring -->
+  <rect x="0.5" y="0.5" width="31" height="31" rx="6.5" stroke="url(#ring)" stroke-opacity="0.35"/>
+  <!-- "FA" monogram -->
+  <text
+    x="16" y="22"
+    text-anchor="middle"
+    font-family="'Inter', -apple-system, sans-serif"
+    font-size="13.5"
+    font-weight="700"
+    letter-spacing="-0.6"
+    fill="url(#fg)"
+  >FA</text>
+  <defs>
+    <linearGradient id="wash" x1="0" y1="0" x2="32" y2="32" gradientUnits="userSpaceOnUse">
+      <stop offset="0%"   stop-color="#58a6ff" stop-opacity="0.12"/>
+      <stop offset="100%" stop-color="#3fb950" stop-opacity="0.08"/>
+    </linearGradient>
+    <linearGradient id="ring" x1="0" y1="0" x2="32" y2="32" gradientUnits="userSpaceOnUse">
+      <stop offset="0%"   stop-color="#58a6ff"/>
+      <stop offset="100%" stop-color="#3fb950"/>
+    </linearGradient>
+    <linearGradient id="fg" x1="6" y1="9" x2="26" y2="23" gradientUnits="userSpaceOnUse">
+      <stop offset="0%"   stop-color="#58a6ff"/>
+      <stop offset="100%" stop-color="#3fb950"/>
+    </linearGradient>
+  </defs>
 </svg>
