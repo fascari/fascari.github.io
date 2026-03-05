@@ -439,8 +439,14 @@
       /* ── Articles ── */
       .articles {
         display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+        grid-template-columns: repeat(3, 1fr);
         gap: 16px;
+      }
+
+      @media (max-width: 900px) {
+        .articles {
+          grid-template-columns: repeat(2, 1fr);
+        }
       }
 
       .article {
@@ -815,7 +821,7 @@
       const container = document.getElementById("articles-list");
 
       // Render skeletons while loading
-      for (let i = 0; i < 4; i++) {
+      for (let i = 0; i < 9; i++) {
         const sk = document.createElement("div");
         sk.className = "skeleton";
         sk.innerHTML = `
@@ -850,56 +856,59 @@
           .toUpperCase();
       }
 
-      const feed =
-        `https://api.rss2json.com/v1/api.json?rss_url=https://medium.com/feed/@felipe.ascari_49171&t=${Date.now()}`;
-
-      fetch(feed)
-        .then((res) => res.json())
-        .then((data) => {
-          container.innerHTML = "";
-
-          data.items.slice(0, 8).forEach((item, idx) => {
-            const date = new Date(item.pubDate).toLocaleDateString("en-US", {
-              year: "numeric",
-              month: "short",
-              day: "numeric",
-            });
-
-            const plainText = item.description.replace(/<[^>]+>/g, "");
-            const excerpt = plainText.slice(0, 130).trimEnd() + "…";
-            const rt = readTime(plainText);
-            const thumb = extractThumb(item.content || item.description || "");
-            const num = String(idx + 1).padStart(2, "0");
-
-            const thumbHTML = thumb
-              ? `<img class="article-thumb" src="${thumb}" alt="" loading="lazy" />`
-              : `<div class="article-thumb-placeholder"><span class="article-thumb-text">${initials(item.title)}</span></div>`;
-
-            const el = document.createElement("a");
-            el.className = "article";
-            el.href = item.link;
-            el.target = "_blank";
-            el.rel = "noopener noreferrer";
-            el.innerHTML = `
-              ${thumbHTML}
-              <div class="article-content">
-                <div class="article-top">
-                  <span class="article-index">#${num}</span>
-                  <span class="article-readtime">${rt}</span>
-                </div>
-                <h3>${item.title}</h3>
-                <p class="article-excerpt">${excerpt}</p>
-                <div class="article-footer">
-                  <span class="article-date">${date}</span>
-                  <span class="medium-badge">Medium</span>
-                </div>
-              </div>
-            `;
-            container.appendChild(el);
+      function renderItems(items) {
+        container.innerHTML = "";
+        items.slice(0, 9).forEach((item, idx) => {
+          const date = new Date(item.pubDate).toLocaleDateString("en-US", {
+            year: "numeric",
+            month: "short",
+            day: "numeric",
           });
+          const rawText = item.description || item.content || "";
+          const plainText = rawText
+            .replace(/<\/(p|div|li|h[1-6]|br|blockquote|section|article)>/gi, " ")
+            .replace(/<[^>]+>/g, "")
+            .replace(/\s+/g, " ")
+            .trim();
+          const excerpt = plainText.length > 0 ? plainText.slice(0, 130).trimEnd() + "…" : "";
+          const rt = readTime(plainText);
+          const thumb = extractThumb(item.content || item.description || "");
+          const num = String(idx + 1).padStart(2, "0");
+          const thumbHTML = thumb
+            ? `<img class="article-thumb" src="${thumb}" alt="" loading="lazy" />`
+            : `<div class="article-thumb-placeholder"><span class="article-thumb-text">${initials(item.title)}</span></div>`;
+          const el = document.createElement("a");
+          el.className = "article";
+          el.href = item.link;
+          el.target = "_blank";
+          el.rel = "noopener noreferrer";
+          el.innerHTML = `
+            ${thumbHTML}
+            <div class="article-content">
+              <div class="article-top">
+                <span class="article-index">#${num}</span>
+                <span class="article-readtime">${rt}</span>
+              </div>
+              <h3>${item.title}</h3>
+              <p class="article-excerpt">${excerpt}</p>
+              <div class="article-footer">
+                <span class="article-date">${date}</span>
+                <span class="medium-badge">Medium</span>
+              </div>
+            </div>
+          `;
+          container.appendChild(el);
+        });
+      }
+
+      fetch("/articles.json")
+        .then((res) => {
+          if (!res.ok) throw new Error("not found");
+          return res.json();
         })
+        .then((items) => renderItems(items))
         .catch(() => {
-          container.innerHTML = `<p style="color:var(--text-muted);font-size:0.875rem">Could not load articles.</p>`;
+          container.innerHTML = `<p style="color:var(--text-muted);font-size:0.875rem">Could not load articles. <a href="https://medium.com/@felipe.ascari_49171" target="_blank" style="color:var(--article-accent)">Read on Medium ↗</a></p>`;
         });
     </script>
   </body>
