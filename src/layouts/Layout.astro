@@ -1,19 +1,22 @@
 ---
 import '../styles/global.css';
+import type { Lang } from '../i18n/translations';
 
 interface Props {
   title?: string;
   description?: string;
+  lang?: Lang;
 }
 
 const {
   title = 'Felipe Ascari',
   description = 'Senior Backend Engineer specializing in Go, distributed systems, and fintech.',
+  lang = 'en',
 } = Astro.props;
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang={lang}>
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -23,6 +26,9 @@ const {
     <meta property="og:type" content="website" />
     <title>{title}</title>
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="canonical" href={`https://felipeascari.dev${lang === 'pt' ? '/pt/' : '/'}`} />
+    <link rel="alternate" hreflang="en" href="https://felipeascari.dev/" />
+    <link rel="alternate" hreflang="pt" href="https://felipeascari.dev/pt/" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link

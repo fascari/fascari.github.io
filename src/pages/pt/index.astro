@@ -1,0 +1,43 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Nav from '../../components/Nav.astro';
+import Hero from '../../components/Hero.astro';
+import About from '../../components/About.astro';
+import TechStack from '../../components/TechStack.astro';
+import Experience from '../../components/Experience.astro';
+import Projects from '../../components/Projects.astro';
+import Articles from '../../components/Articles.astro';
+import Contact from '../../components/Contact.astro';
+import Footer from '../../components/Footer.astro';
+import { getTranslations } from '../../i18n/translations';
+import type { Lang } from '../../i18n/translations';
+
+const lang: Lang = 'pt';
+const t = getTranslations(lang);
+---
+
+<Layout title={t.meta.title} description={t.meta.description} lang={lang}>
+  <Nav t={t.nav} lang={lang} />
+  <Hero t={t.hero} />
+  <div class="container">
+    <About t={t.about} />
+    <TechStack t={t.techStack} />
+    <Experience t={t.experience} lang={lang} />
+    <Projects t={t.projects} lang={lang} />
+    <Articles t={t.articles} />
+    <Contact t={t.contact} />
+  </div>
+  <Footer t={t.footer} />
+</Layout>
+
+<style>
+  .container {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 0 32px 80px;
+  }
+
+  @media (max-width: 640px) {
+    .container { padding: 0 20px 60px; }
+  }
+</style>

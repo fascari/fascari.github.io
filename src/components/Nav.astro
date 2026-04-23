@@ -1,15 +1,30 @@
 ---
+import type { Translations, Lang } from '../i18n/translations';
+
+interface Props {
+  t: Translations['nav'];
+  lang: Lang;
+}
+
+const { t, lang } = Astro.props;
+const homeHref = lang === 'pt' ? '/pt/' : '/';
 ---
 
 <nav>
   <div class="nav-inner">
-    <a href="#" class="nav-logo">fascari<span>.</span></a>
+    <a href={homeHref} class="nav-logo">fascari<span>.</span></a>
     <div class="nav-links">
-      <a href="#stack">Stack</a>
-      <a href="#experience">Work</a>
-      <a href="#projects">Projects</a>
-      <a href="#articles">Articles</a>
-      <a href="https://github.com/fascari" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
+      <a href="#about">{t.about}</a>
+      <a href="#stack">{t.stack}</a>
+      <a href="#experience">{t.work}</a>
+      <a href="#projects">{t.projects}</a>
+      <a href="#articles">{t.articles}</a>
+      <a href="#contact">{t.contact}</a>
+    </div>
+    <div class="lang-switcher">
+      <a href="/" class:list={['lang-btn', { active: lang === 'en' }]}>EN</a>
+      <span class="lang-sep">|</span>
+      <a href="/pt/" class:list={['lang-btn', { active: lang === 'pt' }]}>PT</a>
     </div>
   </div>
 </nav>
@@ -21,7 +36,7 @@
     z-index: 100;
     backdrop-filter: blur(20px) saturate(180%);
     -webkit-backdrop-filter: blur(20px) saturate(180%);
-    background: rgba(22, 21, 26, 0.85);
+    background: rgba(12, 12, 12, 0.88);
     border-bottom: 1px solid var(--border);
   }
 
@@ -32,7 +47,7 @@
     height: 56px;
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    gap: 16px;
   }
 
   .nav-logo {
@@ -40,6 +55,7 @@
     font-weight: 600;
     color: var(--text);
     letter-spacing: -0.01em;
+    margin-right: auto;
   }
 
   .nav-logo span {
@@ -63,6 +79,40 @@
   .nav-links a:hover {
     color: var(--text);
     background: rgba(255, 255, 255, 0.05);
+  }
+
+  /* Language switcher */
+  .lang-switcher {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    border: 1px solid var(--border);
+    border-radius: 99px;
+    padding: 3px 10px;
+    margin-left: 8px;
+  }
+
+  .lang-sep {
+    font-size: 0.72rem;
+    color: var(--border);
+  }
+
+  .lang-btn {
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    color: var(--text-subtle);
+    padding: 2px 4px;
+    border-radius: 4px;
+    transition: color 0.15s;
+  }
+
+  .lang-btn:hover {
+    color: var(--text-muted);
+  }
+
+  .lang-btn.active {
+    color: var(--accent);
   }
 
   @media (max-width: 640px) {
