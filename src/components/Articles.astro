@@ -1,0 +1,118 @@
+---
+---
+
+<section id="articles">
+  <div class="section-wrapper">
+    <div class="section-header">
+      <span class="section-label">Writing</span>
+      <h2 class="section-title">Recent articles</h2>
+      <div class="section-line"></div>
+    </div>
+    <div id="articles-grid" class="articles-grid"></div>
+  </div>
+</section>
+
+<style>
+  section {
+    padding-top: 80px;
+  }
+
+  .articles-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 14px;
+  }
+
+  @media (max-width: 900px) {
+    .articles-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+
+  @media (max-width: 640px) {
+    .articles-grid { grid-template-columns: 1fr; }
+  }
+</style>
+
+<script>
+  function extractThumb(item: { cover_image?: string; content?: string }): string | null {
+    if (item.cover_image) return item.cover_image;
+    if (item.content) {
+      const m = item.content.match(/<img[^>]+src="([^"]+)"/);
+      if (m) return m[1];
+    }
+    return null;
+  }
+
+  function estimateReadTime(text: string): string {
+    const words = (text || '').trim().split(/\s+/).filter(Boolean).length;
+    const mins = Math.max(1, Math.round(words / 200));
+    return `${mins} min read`;
+  }
+
+  function formatDate(dateStr: string): string {
+    try {
+      return new Date(dateStr).toLocaleDateString('en-US', {
+        year: 'numeric',
+        month: 'short',
+        day: 'numeric',
+      });
+    } catch {
+      return '';
+    }
+  }
+
+  const grid = document.getElementById('articles-grid')!;
+
+  // Skeletons while loading
+  grid.innerHTML = Array.from({ length: 6 }, () => `
+    <div class="skeleton">
+      <div class="skeleton-thumb"></div>
+      <div class="skeleton-body">
+        <div class="skeleton-line" style="width:40%"></div>
+        <div class="skeleton-line" style="width:85%"></div>
+        <div class="skeleton-line" style="width:65%"></div>
+      </div>
+    </div>
+  `).join('');
+
+  fetch('articles.json')
+    .then((r) => r.json())
+    .then((articles: Array<{
+      title: string;
+      link: string;
+      pubDate: string;
+      description: string;
+      content: string;
+      cover_image?: string;
+      source?: string;
+    }>) => {
+      grid.innerHTML = articles.map((item, i) => {
+        const thumb = extractThumb(item);
+        const source = item.source || 'medium';
+        const sourceLabel = source === 'devto' ? 'DEV.to' : source.charAt(0).toUpperCase() + source.slice(1);
+
+        return `
+          <a class="article" href="${item.link}" target="_blank" rel="noopener noreferrer">
+            ${thumb
+              ? `<img class="article-thumb" src="${thumb}" alt="${item.title}" loading="lazy" />`
+              : `<div class="article-thumb-placeholder">${item.title.slice(0, 2).toUpperCase()}</div>`
+            }
+            <div class="article-body">
+              <div class="article-meta">
+                <span class="article-index">${String(i + 1).padStart(2, '0')}</span>
+                <span class="article-readtime">${estimateReadTime(item.description)}</span>
+              </div>
+              <div class="article-title">${item.title}</div>
+              <div class="article-excerpt">${item.description}</div>
+              <div class="article-footer">
+                <span class="article-date">${formatDate(item.pubDate)}</span>
+                <span class="platform-badge" data-source="${source}">${sourceLabel}</span>
+              </div>
+            </div>
+          </a>
+        `;
+      }).join('');
+    })
+    .catch(() => {
+      grid.innerHTML = '<p style="color:var(--text-muted);grid-column:1/-1">Could not load articles.</p>';
+    });
+</script>
