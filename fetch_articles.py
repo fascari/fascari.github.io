@@ -22,7 +22,7 @@ from pathlib import Path
 MEDIUM_FEED = "https://medium.com/feed/@felipe.ascari_49171"
 DEVTO_FEED = "https://dev.to/feed/felipe_ascari"
 MANUAL_FILE = Path(__file__).parent / "articles-manual.json"
-OUTPUT = Path(__file__).parent / "articles.json"
+OUTPUT = Path(__file__).parent / "public" / "articles.json"
 
 
 def fetch_rss(url: str) -> str:
