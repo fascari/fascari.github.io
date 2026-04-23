@@ -582,16 +582,31 @@
         letter-spacing: 0.01em;
       }
 
-      .medium-badge {
-        background: var(--article-glow);
-        color: var(--article-accent);
-        border: 1px solid rgba(125, 168, 201, 0.2);
+      .platform-badge {
         padding: 2px 10px;
         border-radius: 99px;
         font-size: 0.68rem;
         font-weight: 600;
         letter-spacing: 0.04em;
         text-transform: uppercase;
+      }
+
+      .platform-badge[data-source="medium"] {
+        background: var(--article-glow);
+        color: var(--article-accent);
+        border: 1px solid rgba(125, 168, 201, 0.2);
+      }
+
+      .platform-badge[data-source="linkedin"] {
+        background: rgba(10, 102, 194, 0.12);
+        color: #5ba3f5;
+        border: 1px solid rgba(10, 102, 194, 0.25);
+      }
+
+      .platform-badge[data-source="devto"] {
+        background: rgba(128, 110, 200, 0.12);
+        color: #b392f0;
+        border: 1px solid rgba(128, 110, 200, 0.25);
       }
 
       /* ── Skeleton loading ── */
@@ -884,11 +899,14 @@
             .trim();
           const excerpt = plainText.length > 0 ? plainText.slice(0, 130).trimEnd() + "…" : "";
           const rt = readTime(plainText);
-          const thumb = extractThumb(item.content || item.description || "");
+          const thumb = item.cover_image || extractThumb(item.content || item.description || "");
           const num = String(idx + 1).padStart(2, "0");
           const thumbHTML = thumb
             ? `<img class="article-thumb" src="${thumb}" alt="" loading="lazy" />`
             : `<div class="article-thumb-placeholder"><span class="article-thumb-text">${initials(item.title)}</span></div>`;
+          const sourceLabel = { medium: "Medium", linkedin: "LinkedIn", devto: "DEV.to" };
+          const source = item.source || "medium";
+          const badgeLabel = sourceLabel[source] || source;
           const el = document.createElement("a");
           el.className = "article";
           el.href = item.link;
@@ -905,7 +923,7 @@
               <p class="article-excerpt">${excerpt}</p>
               <div class="article-footer">
                 <span class="article-date">${date}</span>
-                <span class="medium-badge">Medium</span>
+                <span class="platform-badge" data-source="${source}">${badgeLabel}</span>
               </div>
             </div>
           `;
@@ -913,7 +931,7 @@
         });
       }
 
-      fetch("/articles.json")
+      fetch("articles.json")
         .then((res) => {
           if (!res.ok) throw new Error("not found");
           return res.json();
