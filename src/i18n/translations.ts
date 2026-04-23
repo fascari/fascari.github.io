@@ -6,6 +6,7 @@ export interface Translations {
     description: string;
   };
   nav: {
+    about: string;
     stack: string;
     work: string;
     projects: string;
@@ -14,6 +15,11 @@ export interface Translations {
   };
   hero: {
     eyebrow: string;
+    bio: string;
+  };
+  about: {
+    label: string;
+    title: string;
     bio: string;
   };
   techStack: {
@@ -49,10 +55,11 @@ export interface Translations {
 export const translations: Record<Lang, Translations> = {
   en: {
     meta: {
-      title: 'Felipe Ascari — Senior Backend Engineer',
+      title: 'Felipe Ascari | Backend Engineer',
       description: 'Senior Backend Engineer specializing in Go and distributed systems.',
     },
     nav: {
+      about: 'About',
       stack: 'Stack',
       work: 'Work',
       projects: 'Projects',
@@ -61,7 +68,12 @@ export const translations: Record<Lang, Translations> = {
     },
     hero: {
       eyebrow: 'Senior Backend Engineer · Go',
-      bio: "Started in desktop apps with Dataflex, writing logistics software for transportation companies when barely anyone outside niche ERP circles had heard of the language. Moved to Java for a decade, mostly in public accounting, covering municipal tax systems, fiscal documents, the kind of software that has to be right. Then back to logistics at Ambev, and eventually into fintech, where I've been since 2022. These days it's Go, distributed systems, and the occasional blockchain experiment. More than 15 years in, still finding new things to break and fix.",
+      bio: "15+ years building backend systems. Go engineer since 2022, focused on distributed systems and scale.",
+    },
+    about: {
+      label: 'Background',
+      title: 'About me',
+      bio: "Started with Dataflex, building ERP and logistics software for freight companies. A decade in Java, mostly in public accounting: municipal tax systems, fiscal documents, the kind of software that has to be right. Then logistics at Ambev, and high-volume shipment systems at Mercado Livre, building Go microservices for the delivery pipeline under tight latency. Now at McGraw Hill, building an offer pricing orchestrator that ties together the full pricing chain for products and services across one of the largest edtech e-commerce platforms in the US. 15+ years in, still finding new things to break and fix.",
     },
     techStack: {
       label: 'Toolkit',
@@ -95,10 +107,11 @@ export const translations: Record<Lang, Translations> = {
 
   pt: {
     meta: {
-      title: 'Felipe Ascari — Engenheiro Backend Sênior',
+      title: 'Felipe Ascari | Engenheiro Backend',
       description: 'Engenheiro Backend Sênior especializado em Go e sistemas distribuídos.',
     },
     nav: {
+      about: 'Sobre',
       stack: 'Tecnologias',
       work: 'Experiência',
       projects: 'Projetos',
@@ -107,7 +120,12 @@ export const translations: Record<Lang, Translations> = {
     },
     hero: {
       eyebrow: 'Engenheiro Backend Sênior · Go',
-      bio: 'Comecei em apps desktop com Dataflex, escrevendo software de logística para transportadoras quando quase ninguém fora de nichos de ERP conhecia a linguagem. Migrei para Java por uma década, principalmente em contabilidade pública, abrangendo sistemas tributários municipais, documentos fiscais, o tipo de software que precisa estar certo. Depois logística na Ambev, e finalmente fintech, onde estou desde 2022. Hoje é Go, sistemas distribuídos e algum experimento com blockchain. Mais de 15 anos, ainda encontrando coisas novas para quebrar e consertar.',
+      bio: '15+ anos construindo sistemas backend. Engenheiro Go desde 2022, focado em sistemas distribuídos e escala.',
+    },
+    about: {
+      label: 'Sobre',
+      title: 'Sobre mim',
+      bio: 'A primeira linguagem foi Dataflex, desenvolvendo sistemas de ERP e logística para transportadoras. Depois uma década em Java, com foco em contabilidade pública: tributação municipal, documentos fiscais, software que não tem margem para erro. Na sequência, logística na Ambev e sistemas de alto volume no Mercado Livre, onde construí microsserviços em Go para a operação de entregas com exigências rígidas de latência. Hoje na McGraw Hill, desenvolvendo um orquestrador de preços de ofertas que integra toda a cadeia de precificação de produtos e serviços do e-commerce de uma das maiores edtechs dos EUA. 15+ anos de carreira, ainda com coisas novas para quebrar e consertar.',
     },
     techStack: {
       label: 'Ferramentas',
