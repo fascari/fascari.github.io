@@ -41,6 +41,7 @@ def parse_rss(xml_text: str, source: str) -> list:
         pub_date_el = item.find("pubDate")
         desc_el = item.find("description")
         content_el = item.find("content:encoded", ns)
+        tags = [cat.text for cat in item.findall("category") if cat.text]
         items.append({
             "title": (title_el.text or "").strip() if title_el is not None else "",
             "link": (link_el.text or "").strip() if link_el is not None else "",
@@ -48,6 +49,7 @@ def parse_rss(xml_text: str, source: str) -> list:
             "description": desc_el.text if desc_el is not None else "",
             "content": content_el.text if content_el is not None else "",
             "source": source,
+            "tags": tags,
         })
     return items
 

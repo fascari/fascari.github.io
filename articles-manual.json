@@ -6,7 +6,8 @@
     "description": "A two-part case study on building an ERC-20 rewards service in Go, covering goroutines, replicas, and the consistency problems that surface before a transaction is signed. Part 1 tackles nonce sequencing and idempotency. Go is the dominant language in the backend layer of crypto fintech. Kraken, Coinbase, Zerohash, Circle, and go-ethereum itself run on Go. The reference Ethereum implementation is written in Go, meaning ethclient, types.SignTx, and crypto/ecdsa are not wrappers around a C library but the source code you can read, audit, and step through in a debugger in the same language you ship.",
     "content": "",
     "cover_image": "https://i.imgur.com/dAisLyw.png",
-    "source": "devto"
+    "source": "devto",
+    "tags": ["Go", "Fintech", "Blockchain"]
   },
   {
     "title": "Distributed Locks and Fencing Tokens",
@@ -15,7 +16,8 @@
     "description": "When multiple servers coordinate access to a shared resource, standard mutexes break down because they only protect memory within a single process. Redis SETNX is commonly used to coordinate distributed locks, but it introduces a subtle bug: the zombie process problem. If a server acquires a lock and then freezes due to garbage collection, the lock expires and another server takes over. When the first server wakes up, both think they hold the lock. Fencing tokens solve this elegantly. Every time a lock is granted, the lock service returns a monotonically increasing token. The storage layer rejects writes from any client presenting a token older than the last accepted one. This article walks through a proof-of-concept implementation in Go, covering SETNX, token generation, and how to enforce ordering at the storage layer to prevent stale writes in distributed systems.",
     "content": "",
     "cover_image": "https://cdn-images-1.medium.com/max/688/1*sAGPyhVV5zxiCFbQLsQ8HA.png",
-    "source": "linkedin"
+    "source": "linkedin",
+    "tags": ["Go", "Distributed Systems", "Redis"]
   },
   {
     "title": "Understanding Go's Scheduler: How Goroutine Management Works",
@@ -24,7 +26,8 @@
     "description": "Traditional threading models create a one-to-one mapping between application threads and OS threads. Each OS thread consumes about 2MB of stack memory and requires expensive kernel-level context switching. Creating ten thousand threads would require 20GB just for stacks, making this approach impractical for highly concurrent applications. Go solves this with goroutines, which start with only 2KB of stack and grow dynamically. Context switching happens in user space, making it significantly faster. The Go scheduler uses three components: G for goroutines, M for OS threads, and P for logical processors. The scheduler implements a work-stealing algorithm that keeps all CPU cores busy. When a goroutine blocks on a system call, the scheduler detaches the M from the P and attaches a new M, so other goroutines continue running. This article breaks down each component of the G-M-P model, explains state transitions, and covers how the scheduler handles blocking operations.",
     "content": "",
     "cover_image": "https://cdn-images-1.medium.com/max/1015/1*f9kCroGIEZ6KPHRXHTCkSA.png",
-    "source": "linkedin"
+    "source": "linkedin",
+    "tags": ["Go", "Concurrency"]
   },
   {
     "title": "Understanding Performance Profiling in Go",
@@ -33,6 +36,7 @@
     "description": "Performance optimization starts with measurement. Without data you are guessing which parts of your code are slow. Go ships with pprof, a built-in profiler that collects runtime data without relying on external services or complex monitoring infrastructure. When you enable pprof it exposes HTTP endpoints that provide different views into your program behavior. CPU profiling records where the program spends processing time by sampling the call stack at regular intervals and building a picture of which functions consume the most CPU cycles. Memory profiling tracks heap allocations and shows which parts of your code allocate memory, how much, and whether that memory gets freed or accumulates over time. Goroutine profiling displays all running goroutines and helps identify leaks. Block profiling shows where goroutines wait on synchronization primitives like channels and mutexes. This article covers how to enable pprof, read flame graphs, and act on the data to optimize real Go applications.",
     "content": "",
     "cover_image": "https://cdn-images-1.medium.com/max/892/1*AsUbfCLd3ARBAiZsa56DpA.png",
-    "source": "linkedin"
+    "source": "linkedin",
+    "tags": ["Go", "Performance"]
   }
 ]

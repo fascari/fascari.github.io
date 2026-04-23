@@ -1,14 +1,27 @@
 ---
+import type { Translations } from '../i18n/translations';
+
+interface Props {
+  t: Translations['articles'];
+}
+
+const { t } = Astro.props;
 ---
 
 <section id="articles">
   <div class="section-wrapper">
     <div class="section-header">
-      <span class="section-label">Writing</span>
-      <h2 class="section-title">Recent articles</h2>
+      <span class="section-label">{t.label}</span>
+      <h2 class="section-title">{t.title}</h2>
       <div class="section-line"></div>
     </div>
-    <div id="articles-grid" class="articles-grid"></div>
+    <div
+      id="articles-grid"
+      class="articles-grid"
+      data-min-read={t.minRead}
+      data-error={t.error}
+      data-locale={t.locale}
+    ></div>
   </div>
 </section>
 
@@ -19,12 +32,8 @@
 
   .articles-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 14px;
-  }
-
-  @media (max-width: 900px) {
-    .articles-grid { grid-template-columns: repeat(2, 1fr); }
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
   }
 
   @media (max-width: 640px) {
@@ -42,15 +51,19 @@
     return null;
   }
 
-  function estimateReadTime(text: string): string {
-    const words = (text || '').trim().split(/\s+/).filter(Boolean).length;
-    const mins = Math.max(1, Math.round(words / 200));
-    return `${mins} min read`;
+  function stripHtml(html: string): string {
+    return html.replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim();
   }
 
-  function formatDate(dateStr: string): string {
+  function estimateReadTime(text: string, label: string): string {
+    const words = stripHtml(text || '').split(/\s+/).filter(Boolean).length;
+    const mins = Math.max(1, Math.round(words / 200));
+    return `${mins} ${label}`;
+  }
+
+  function formatDate(dateStr: string, locale: string): string {
     try {
-      return new Date(dateStr).toLocaleDateString('en-US', {
+      return new Date(dateStr).toLocaleDateString(locale, {
         year: 'numeric',
         month: 'short',
         day: 'numeric',
@@ -60,10 +73,23 @@
     }
   }
 
-  const grid = document.getElementById('articles-grid')!;
+  function sourceLabel(source: string): string {
+    if (source === 'devto') return 'DEV.to';
+    if (source === 'linkedin') return 'LinkedIn';
+    if (source === 'medium') return 'Medium';
+    return source.charAt(0).toUpperCase() + source.slice(1);
+  }
 
-  // Skeletons while loading
-  grid.innerHTML = Array.from({ length: 6 }, () => `
+  function formatTag(tag: string): string {
+    return tag.replace(/-/g, ' ').replace(/\b\w/g, c => c.toUpperCase());
+  }
+
+  const grid = document.getElementById('articles-grid')!;
+  const minRead = grid.dataset.minRead || 'min read';
+  const locale = grid.dataset.locale || 'en-US';
+  const errorMsg = grid.dataset.error || 'Could not load articles.';
+
+  grid.innerHTML = Array.from({ length: 4 }, () => `
     <div class="skeleton">
       <div class="skeleton-thumb"></div>
       <div class="skeleton-body">
@@ -74,9 +100,9 @@
     </div>
   `).join('');
 
-  fetch('articles.json')
+  fetch('/articles.json')
     .then((r) => r.json())
-    .then((articles: Array<{
+    .then((all: Array<{
       title: string;
       link: string;
       pubDate: string;
@@ -84,11 +110,28 @@
       content: string;
       cover_image?: string;
       source?: string;
+      tags?: string[];
     }>) => {
-      grid.innerHTML = articles.map((item, i) => {
+      const articles = all.slice(0, 4);
+      grid.innerHTML = articles.map((item) => {
         const thumb = extractThumb(item);
         const source = item.source || 'medium';
-        const sourceLabel = source === 'devto' ? 'DEV.to' : source.charAt(0).toUpperCase() + source.slice(1);
+        const tags = (item.tags ?? []).slice(0, 3);
+
+        // prefer description (plain); fall back to content (HTML) for Medium
+        const richText = item.description && item.description.trim()
+          ? item.description
+          : stripHtml(item.content || '');
+        const plain = stripHtml(richText);
+
+        // truncate at last sentence boundary within 280 chars, no ellipsis
+        function toSentence(text: string, max: number): string {
+          if (text.length <= max) return text;
+          const chunk = text.slice(0, max);
+          const end = Math.max(chunk.lastIndexOf('.'), chunk.lastIndexOf('!'), chunk.lastIndexOf('?'));
+          return end > 60 ? text.slice(0, end + 1) : chunk.trimEnd();
+        }
+        const excerpt = toSentence(plain, 280);
 
         return `
           <a class="article" href="${item.link}" target="_blank" rel="noopener noreferrer">
@@ -97,15 +140,15 @@
               : `<div class="article-thumb-placeholder">${item.title.slice(0, 2).toUpperCase()}</div>`
             }
             <div class="article-body">
-              <div class="article-meta">
-                <span class="article-index">${String(i + 1).padStart(2, '0')}</span>
-                <span class="article-readtime">${estimateReadTime(item.description)}</span>
+              <div class="article-tags">
+                <span class="platform-badge" data-source="${source}">${sourceLabel(source)}</span>
+                ${tags.map(tag => `<span class="article-tag">${formatTag(tag)}</span>`).join('')}
               </div>
               <div class="article-title">${item.title}</div>
-              <div class="article-excerpt">${item.description}</div>
+              <div class="article-excerpt">${excerpt}</div>
               <div class="article-footer">
-                <span class="article-date">${formatDate(item.pubDate)}</span>
-                <span class="platform-badge" data-source="${source}">${sourceLabel}</span>
+                <span class="article-date">${formatDate(item.pubDate, locale)}</span>
+                <span class="article-readtime">${estimateReadTime(plain, minRead)}</span>
               </div>
             </div>
           </a>
@@ -113,6 +156,6 @@
       }).join('');
     })
     .catch(() => {
-      grid.innerHTML = '<p style="color:var(--text-muted);grid-column:1/-1">Could not load articles.</p>';
+      grid.innerHTML = `<p style="color:var(--text-muted);grid-column:1/-1">${errorMsg}</p>`;
     });
 </script>

@@ -1,12 +1,20 @@
 ---
 import { projects } from '../data/projects';
+import type { Translations, Lang } from '../i18n/translations';
+
+interface Props {
+  t: Translations['projects'];
+  lang: Lang;
+}
+
+const { t, lang } = Astro.props;
 ---
 
 <section id="projects">
   <div class="section-wrapper">
     <div class="section-header">
-      <span class="section-label">Work</span>
-      <h2 class="section-title">Selected projects</h2>
+      <span class="section-label">{t.label}</span>
+      <h2 class="section-title">{t.title}</h2>
       <div class="section-line"></div>
     </div>
     <div class="projects-grid">
@@ -16,7 +24,7 @@ import { projects } from '../data/projects';
             <span class="card-name">{p.name}</span>
             <span class="card-arrow">↗</span>
           </div>
-          <p class="card-desc">{p.description}</p>
+          <p class="card-desc">{lang === 'pt' ? p.descriptionPt : p.description}</p>
           <span class="card-tag">{p.tag}</span>
         </a>
       ))}
