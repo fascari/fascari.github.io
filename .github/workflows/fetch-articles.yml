@@ -1,7 +1,9 @@
-name: Fetch Medium Articles
+name: Fetch Articles
 
 on:
-  workflow_dispatch: # Manual trigger only
+  workflow_dispatch: # Manual trigger
+  schedule:
+    - cron: "0 6 * * 1" # Every Monday at 06:00 UTC
 
 jobs:
   fetch:
@@ -13,48 +15,8 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Fetch RSS and generate articles.json
-        run: |
-          curl -s "https://medium.com/feed/@felipe.ascari_49171" -o feed.xml
-
-          python3 - <<'EOF'
-          import xml.etree.ElementTree as ET
-          import json
-          import re
-          import os
-
-          tree = ET.parse("feed.xml")
-          root = tree.getroot()
-
-          ns = {"content": "http://purl.org/rss/1.0/modules/content/"}
-          items = []
-
-          for item in root.findall(".//item"):
-              title_el = item.find("title")
-              link_el = item.find("link")
-              pub_date_el = item.find("pubDate")
-              desc_el = item.find("description")
-              content_el = item.find("content:encoded", ns)
-
-              title = title_el.text if title_el is not None else ""
-              link = link_el.text if link_el is not None else ""
-              pub_date = pub_date_el.text if pub_date_el is not None else ""
-              description = desc_el.text if desc_el is not None else ""
-              content = content_el.text if content_el is not None else ""
-
-              items.append({
-                  "title": title,
-                  "link": link,
-                  "pubDate": pub_date,
-                  "description": description,
-                  "content": content,
-              })
-
-          with open("articles.json", "w", encoding="utf-8") as f:
-              json.dump(items, f, ensure_ascii=False, indent=2)
-
-          print(f"Saved {len(items)} articles.")
-          EOF
+      - name: Fetch and merge articles
+        run: python3 fetch_articles.py
 
       - name: Commit articles.json if changed
         run: |
