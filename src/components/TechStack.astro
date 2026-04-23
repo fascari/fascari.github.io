@@ -1,0 +1,71 @@
+---
+const techs = [
+  { name: 'Go', color: '#00ADD8' },
+  { name: 'PostgreSQL', color: '#4169E1' },
+  { name: 'Redis', color: '#FF4438' },
+  { name: 'NATS JetStream', color: '#27AAE1' },
+  { name: 'gRPC', color: '#a78bfa' },
+  { name: 'Ethereum', color: '#8C8C8C' },
+  { name: 'go-ethereum', color: '#00ADD8' },
+  { name: 'Docker', color: '#2496ED' },
+  { name: 'Kubernetes', color: '#326CE5' },
+  { name: 'GitHub Actions', color: '#a78bfa' },
+];
+---
+
+<section id="stack">
+  <div class="section-wrapper">
+    <div class="section-header">
+      <span class="section-label">Toolkit</span>
+      <h2 class="section-title">Tech stack</h2>
+      <div class="section-line"></div>
+    </div>
+    <div class="stack-grid">
+      {techs.map((t) => (
+        <span class="tech-badge">
+          <span class="dot" style={`background: ${t.color}`}></span>
+          {t.name}
+        </span>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  section {
+    padding-top: 80px;
+  }
+
+  .stack-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .tech-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    font-size: 0.83rem;
+    font-weight: 500;
+    color: var(--text-muted);
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 99px;
+    padding: 6px 14px;
+    transition: color 0.15s, border-color 0.15s;
+  }
+
+  .tech-badge:hover {
+    color: var(--text);
+    border-color: var(--border-hover);
+  }
+
+  .dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    flex-shrink: 0;
+    opacity: 0.85;
+  }
+</style>

@@ -1,0 +1,14 @@
+[tools]
+node = "22"
+
+[tasks.dev]
+description = "Start local dev server with live reload (http://localhost:4321)"
+run = "npm run dev"
+
+[tasks.build]
+description = "Build static site to dist/"
+run = "npm run build"
+
+[tasks.preview]
+description = "Preview the production build locally (http://localhost:4321)"
+run = "npm run preview"
