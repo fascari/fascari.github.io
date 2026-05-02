@@ -10,6 +10,16 @@
     "tags": ["Go", "Fintech", "Blockchain"]
   },
   {
+    "title": "Fintech on Go: Signing, event loops, and replay protection without an SDK (Part 2)",
+    "link": "https://dev.to/felipe_ascari/fintech-on-go-signing-event-loops-and-replay-protection-without-an-sdk-part-2-47e8",
+    "pubDate": "Sat, 02 May 2026 15:00:00 +0000",
+    "description": "Part 2 of a two-part case study on building an ERC-20 rewards service in Go. This one covers stdlib signing, the event loop shape that runs the async pipelines, and replay protection at the consumer end.",
+    "content": "",
+    "cover_image": "https://i.imgur.com/T9YpQ4K.png",
+    "source": "devto",
+    "tags": ["Go", "Fintech", "Blockchain"]
+  },
+  {
     "title": "Distributed Locks and Fencing Tokens",
     "link": "https://www.linkedin.com/pulse/distributed-locks-fencing-tokens-felipe-ascari-ntukf/",
     "pubDate": "Thu, 22 Jan 2026 14:02:00 GMT",
