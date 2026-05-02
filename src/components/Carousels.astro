@@ -1,0 +1,76 @@
+---
+import type { Translations } from '../i18n/translations';
+import carouselsData from '../data/carousels.json';
+
+interface Props {
+  t: Translations['carousels'];
+}
+
+const { t } = Astro.props;
+
+function formatDate(dateStr: string, locale: string): string {
+  try {
+    return new Date(dateStr).toLocaleDateString(locale, {
+      year: 'numeric',
+      month: 'short',
+      day: 'numeric',
+    });
+  } catch {
+    return '';
+  }
+}
+
+function formatTag(tag: string): string {
+  return tag.replace(/-/g, ' ').replace(/\b\w/g, (c) => c.toUpperCase());
+}
+---
+
+<section id="carousels">
+  <div class="section-wrapper">
+    <div class="section-header">
+      <span class="section-label">{t.label}</span>
+      <h2 class="section-title">{t.title}</h2>
+      <div class="section-line"></div>
+    </div>
+    <div class="carousels-grid">
+      {carouselsData.map((item) => (
+        <a class="article" href={item.link} target="_blank" rel="noopener noreferrer">
+          {item.cover_image
+            ? <img class="article-thumb" src={item.cover_image} alt={item.title} loading="lazy" />
+            : <div class="article-thumb-placeholder">{item.title.slice(0, 2).toUpperCase()}</div>
+          }
+          <div class="article-body">
+            <div class="article-tags">
+              <span class="platform-badge" data-source="linkedin">LinkedIn</span>
+              {item.tags.slice(0, 3).map((tag) => (
+                <span class="article-tag">{formatTag(tag)}</span>
+              ))}
+            </div>
+            <div class="article-title">{item.title}</div>
+            <div class="article-excerpt">{item.description}</div>
+            <div class="article-footer">
+              <span class="article-date">{formatDate(item.pubDate, t.locale)}</span>
+              <span class="article-readtime">{t.carousel}</span>
+            </div>
+          </div>
+        </a>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  section {
+    padding-top: 80px;
+  }
+
+  .carousels-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+
+  @media (max-width: 640px) {
+    .carousels-grid { grid-template-columns: 1fr; }
+  }
+</style>

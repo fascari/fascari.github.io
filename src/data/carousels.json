@@ -1,0 +1,18 @@
+[
+  {
+    "title": "Six consistency problems in a Go crypto backend",
+    "link": "https://www.linkedin.com/posts/felipe-ascari_fintech-on-go-part-1-what-go-solves-in-activity-7453201039509348352-0k4K",
+    "pubDate": "2026-04-23T22:00:01Z",
+    "description": "Nonces, idempotency keys, replay protection, event ordering - six patterns for a consistent Go crypto backend. Visual notes from Part 1.",
+    "cover_image": "https://i.imgur.com/dAisLyw.png",
+    "tags": ["go", "fintech", "blockchain"]
+  },
+  {
+    "title": "Green Tea: Understanding Go's Garbage Collector",
+    "link": "https://www.linkedin.com/posts/felipe-ascari_green-tea-gc-go-126-activity-7432560104203468800-VOKs",
+    "pubDate": "2026-02-25T23:00:19Z",
+    "description": "What happens when Go's GC runs, how tricolor mark-and-sweep works, and what changed in 1.26. Went deep on this one as a side project.",
+    "cover_image": "https://cdn-images-1.medium.com/max/1024/1*AAbDzzBW5C3YcMbtoPgpCQ.png",
+    "tags": ["go", "gc", "performance"]
+  }
+]

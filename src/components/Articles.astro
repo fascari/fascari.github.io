@@ -89,7 +89,7 @@ const { t } = Astro.props;
   const locale = grid.dataset.locale || 'en-US';
   const errorMsg = grid.dataset.error || 'Could not load articles.';
 
-  grid.innerHTML = Array.from({ length: 4 }, () => `
+  grid.innerHTML = Array.from({ length: 6 }, () => `
     <div class="skeleton">
       <div class="skeleton-thumb"></div>
       <div class="skeleton-body">
@@ -112,7 +112,7 @@ const { t } = Astro.props;
       source?: string;
       tags?: string[];
     }>) => {
-      const articles = all.slice(0, 4);
+      const articles = all.slice(0, 6);
       grid.innerHTML = articles.map((item) => {
         const thumb = extractThumb(item);
         const source = item.source || 'medium';
