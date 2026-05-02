@@ -112,7 +112,7 @@ export const translations: Record<Lang, Translations> = {
     contact: {
       label: 'Connect',
       title: 'Get in touch',
-      subtitle: 'Inbox open. Working on something interesting or building at scale? Reach out.',
+      subtitle: 'Inbox open. Drop me a line about Go, distributed systems, or just to say hi.',
     },
     footer: {
       builtWith: 'Built with Astro · Hosted on GitHub Pages',
@@ -121,8 +121,8 @@ export const translations: Record<Lang, Translations> = {
 
   pt: {
     meta: {
-      title: 'Felipe Ascari | Engenheiro Backend',
-      description: 'Engenheiro Backend Sênior especializado em Go e sistemas distribuídos.',
+      title: 'Felipe Ascari | Senior Backend Engineer',
+      description: 'Senior Backend Engineer especializado em Go e sistemas distribuidos.',
     },
     nav: {
       about: 'Sobre',
@@ -171,7 +171,7 @@ export const translations: Record<Lang, Translations> = {
     contact: {
       label: 'Contato',
       title: 'Entre em contato',
-      subtitle: 'Inbox aberto. Construindo algo interessante ou trabalhando em escala? Manda uma mensagem.',
+      subtitle: 'Inbox aberto. Manda uma mensagem sobre Go, sistemas distribuidos, ou só pra trocar ideia.',
     },
     footer: {
       builtWith: 'Feito com Astro · Hospedado no GitHub Pages',
