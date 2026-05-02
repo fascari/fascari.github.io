@@ -11,6 +11,7 @@ export interface Translations {
     work: string;
     projects: string;
     articles: string;
+    carousels: string;
     contact: string;
   };
   hero: {
@@ -70,6 +71,7 @@ export const translations: Record<Lang, Translations> = {
       work: 'Work',
       projects: 'Projects',
       articles: 'Articles',
+      carousels: 'Posts',
       contact: 'Contact',
     },
     hero: {
@@ -102,8 +104,8 @@ export const translations: Record<Lang, Translations> = {
       locale: 'en-US',
     },
     carousels: {
-      label: 'Featured',
-      title: 'Featured Posts',
+      label: 'Posts',
+      title: 'Featured',
       carousel: 'Carousel',
       locale: 'en-US',
     },
@@ -128,6 +130,7 @@ export const translations: Record<Lang, Translations> = {
       work: 'Experiência',
       projects: 'Projetos',
       articles: 'Artigos',
+      carousels: 'Posts',
       contact: 'Contato',
     },
     hero: {
@@ -160,8 +163,8 @@ export const translations: Record<Lang, Translations> = {
       locale: 'pt-BR',
     },
     carousels: {
-      label: 'Destaque',
-      title: 'Featured Posts',
+      label: 'Posts',
+      title: 'Destaque',
       carousel: 'Carrossel',
       locale: 'pt-BR',
     },

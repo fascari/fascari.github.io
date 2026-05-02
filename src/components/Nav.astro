@@ -19,12 +19,13 @@ const homeHref = lang === 'pt' ? '/pt/' : '/';
       <a href="#experience">{t.work}</a>
       <a href="#projects">{t.projects}</a>
       <a href="#articles">{t.articles}</a>
+      <a href="#carousels">{t.carousels}</a>
       <a href="#contact">{t.contact}</a>
     </div>
     <div class="lang-switcher">
-      <a href="/" class:list={['lang-btn', { active: lang === 'en' }]}>EN</a>
+      <a href="/" class:list={['lang-btn', { active: lang === 'en' }]}>🇺🇸</a>
       <span class="lang-sep">|</span>
-      <a href="/pt/" class:list={['lang-btn', { active: lang === 'pt' }]}>PT</a>
+      <a href="/pt/" class:list={['lang-btn', { active: lang === 'pt' }]}>🇧🇷</a>
     </div>
   </div>
 </nav>
@@ -85,10 +86,7 @@ const homeHref = lang === 'pt' ? '/pt/' : '/';
   .lang-switcher {
     display: flex;
     align-items: center;
-    gap: 4px;
-    border: 1px solid var(--border);
-    border-radius: 99px;
-    padding: 3px 10px;
+    gap: 6px;
     margin-left: 8px;
   }
 
@@ -98,21 +96,20 @@ const homeHref = lang === 'pt' ? '/pt/' : '/';
   }
 
   .lang-btn {
-    font-size: 0.72rem;
-    font-weight: 600;
-    letter-spacing: 0.04em;
-    color: var(--text-subtle);
-    padding: 2px 4px;
+    font-size: 1.1rem;
+    line-height: 1;
+    padding: 2px;
     border-radius: 4px;
-    transition: color 0.15s;
+    opacity: 0.45;
+    transition: opacity 0.15s;
   }
 
   .lang-btn:hover {
-    color: var(--text-muted);
+    opacity: 0.75;
   }
 
   .lang-btn.active {
-    color: var(--accent);
+    opacity: 1;
   }
 
   @media (max-width: 640px) {
