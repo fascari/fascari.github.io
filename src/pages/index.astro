@@ -7,6 +7,7 @@ import TechStack from '../components/TechStack.astro';
 import Experience from '../components/Experience.astro';
 import Projects from '../components/Projects.astro';
 import Articles from '../components/Articles.astro';
+import Carousels from '../components/Carousels.astro';
 import Contact from '../components/Contact.astro';
 import Footer from '../components/Footer.astro';
 import { getTranslations } from '../i18n/translations';
@@ -25,6 +26,7 @@ const t = getTranslations(lang);
     <Experience t={t.experience} lang={lang} />
     <Projects t={t.projects} lang={lang} />
     <Articles t={t.articles} />
+    <Carousels t={t.carousels} />
     <Contact t={t.contact} />
   </div>
   <Footer t={t.footer} />

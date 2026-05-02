@@ -42,6 +42,12 @@ export interface Translations {
     error: string;
     locale: string;
   };
+  carousels: {
+    label: string;
+    title: string;
+    carousel: string;
+    locale: string;
+  };
   contact: {
     label: string;
     title: string;
@@ -67,8 +73,8 @@ export const translations: Record<Lang, Translations> = {
       contact: 'Contact',
     },
     hero: {
-      eyebrow: 'Senior Backend Engineer · Go',
-      bio: "15+ years building backend systems. Go engineer since 2022, focused on distributed systems and scale.",
+      eyebrow: 'Senior Software Engineer',
+      bio: "15+ years in software engineering. Since 2022 building high-throughput distributed systems in Go, in environments where correctness and uptime matter.",
     },
     about: {
       label: 'Background',
@@ -90,9 +96,15 @@ export const translations: Record<Lang, Translations> = {
     },
     articles: {
       label: 'Writing',
-      title: 'Recent articles',
+      title: 'Articles',
       minRead: 'min read',
       error: 'Could not load articles.',
+      locale: 'en-US',
+    },
+    carousels: {
+      label: 'Featured',
+      title: 'Featured Posts',
+      carousel: 'Carousel',
       locale: 'en-US',
     },
     contact: {
@@ -119,8 +131,8 @@ export const translations: Record<Lang, Translations> = {
       contact: 'Contato',
     },
     hero: {
-      eyebrow: 'Engenheiro Backend Sênior · Go',
-      bio: '15+ anos construindo sistemas backend. Engenheiro Go desde 2022, focado em sistemas distribuídos e escala.',
+      eyebrow: 'Senior Software Engineer',
+      bio: '15+ anos de engenharia de software. Desde 2022 em Go, construindo sistemas distribuídos de alto volume em ambientes onde indisponibilidade e inconsistência custam caro.',
     },
     about: {
       label: 'Sobre',
@@ -142,9 +154,15 @@ export const translations: Record<Lang, Translations> = {
     },
     articles: {
       label: 'Escrita',
-      title: 'Artigos recentes',
+      title: 'Artigos',
       minRead: 'min de leitura',
       error: 'Não foi possível carregar os artigos.',
+      locale: 'pt-BR',
+    },
+    carousels: {
+      label: 'Destaque',
+      title: 'Featured Posts',
+      carousel: 'Carrossel',
       locale: 'pt-BR',
     },
     contact: {

@@ -24,6 +24,12 @@ DEVTO_FEED = "https://dev.to/feed/felipe_ascari"
 MANUAL_FILE = Path(__file__).parent / "articles-manual.json"
 OUTPUT = Path(__file__).parent / "public" / "articles.json"
 
+# Titles excluded from articles.json because they appear in a dedicated section
+# (e.g. Featured Posts / carousels). Comparison is case-insensitive after normalizing.
+EXCLUDED_TITLES = {
+    "green tea: understanding go's garbage collector",
+}
+
 
 def fetch_rss(url: str) -> str:
     req = urllib.request.Request(url, headers={"User-Agent": "Mozilla/5.0"})
@@ -81,8 +87,10 @@ def merge(manual: list, *rss_sources: list) -> list:
     merged = list(manual)
     for source_articles in rss_sources:
         for article in source_articles:
-            if normalize(article["title"]) not in manual_titles:
-                merged.append(article)
+            norm = normalize(article["title"])
+            if norm in manual_titles or norm in EXCLUDED_TITLES:
+                continue
+            merged.append(article)
     merged.sort(key=lambda a: parse_date(a["pubDate"]), reverse=True)
     return merged
 
