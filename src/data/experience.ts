@@ -15,9 +15,9 @@ export const experience: ExperienceEntry[] = [
     rolePt: 'Engenheiro Sênior',
     period: 'Sep 2024 - Present',
     description:
-      'Led the design of a Go API consolidating pricing rules across internal systems using DDD and Clean Architecture. Designed serverless workflows on AWS (Lambda, Step Functions, SQS/SNS) replacing manual financial processes, and instrumented services with New Relic. Also contributed to the Angular admin UI consuming the service.',
+      'Consolidated pricing rules from multiple internal sources into a single Go API, giving the commercial team one place to manage offer logic. Built with DDD and Clean Architecture. Designed serverless workflows on AWS (Lambda, Step Functions, SQS, SNS) to replace manual financial processes. Service runs at Apdex 0.98 with error rate under 0.5%. Also contributed to the Angular admin UI.',
     descriptionPt:
-      'Liderou o design de uma API Go consolidando regras de precificação entre sistemas internos usando DDD e Clean Architecture. Projetou fluxos serverless na AWS (Lambda, Step Functions, SQS/SNS) substituindo processos financeiros manuais, e instrumentou os serviços com New Relic. Também contribuiu para a interface Angular consumindo o serviço.',
+      'Consolidou regras de precificação de diversas fontes internas em uma API Go, dando ao time comercial um ponto para gerenciar a logica de ofertas. Construido com DDD e Clean Architecture. Projetou fluxos serverless na AWS (Lambda, Step Functions, SQS, SNS) substituindo processos financeiros manuais. Servico roda com Apdex 0.98 e taxa de erro abaixo de 0.5%. Tambem contribuiu para a interface Angular.',
     current: true,
   },
   {
@@ -26,9 +26,9 @@ export const experience: ExperienceEntry[] = [
     rolePt: 'Engenheiro Sênior',
     period: 'Jan 2022 - Sep 2024',
     description:
-      'Built high-volume event-driven Go microservices for logistics under a p99 budget of 100-200ms. Worked on daily delivery plan optimizations reducing carrier contract mismatch costs, and contributed to Mercado Pago flows around Meli Dolar (MUSD), a cashback stablecoin, handling consistency requirements of money movement at scale.',
+      'Built event-driven Go microservices for the logistics pipeline, operating under the squad\'s p99 budget of 100-200ms. Owned the package-vs-vehicle cost calculation for the daily delivery plan, optimizing carrier contract matching. Wrote a TypeScript BFF unifying multiple backend calls into a single mobile contract. Also worked on Mercado Pago\'s Meli Dolar (MUSD) and Mercado Coin stablecoin flows.',
     descriptionPt:
-      'Construiu microsserviços Go orientados a eventos de alto volume para logística com orçamento p99 de 100-200ms. Trabalhou em otimizações do plano de entregas diário reduzindo custos por incompatibilidade de contratos de transportadoras, e contribuiu para os fluxos do Mercado Pago relacionados ao Meli Dolar (MUSD), uma stablecoin de cashback, tratando requisitos de consistência para movimentação de dinheiro em escala.',
+      'Construiu microsservicos Go orientados a eventos para o pipeline de logistica, operando dentro do orcamento p99 de 100-200ms. Dono do calculo de custo pacote-vs-veiculo no plano de entregas diario, otimizando matching de contratos de transportadoras. Escreveu um BFF TypeScript unificando chamadas de backend em um contrato mobile. Tambem atuou nos fluxos de stablecoin Meli Dolar (MUSD) e Mercado Coin no Mercado Pago.',
   },
   {
     company: 'Ambev Tech',
@@ -36,9 +36,9 @@ export const experience: ExperienceEntry[] = [
     rolePt: 'Arquiteto de Software',
     period: 'May 2021 - Jan 2022',
     description:
-      'Delivered CT-e and MDFe transportation document systems supporting nationwide logistics for the AB InBev group. Led the migration from on-premises infrastructure to Microsoft Azure, including on-call support for issuance flows during peak distribution windows.',
+      'Operated fiscal document issuance (CT-e, MDFe) for thousands of daily transportation events across AB InBev\'s nationwide distribution. A single outage once blocked an entire distribution center, queuing trucks until throughput recovered. Led migration from on-premises to Microsoft Azure. On-call for the issuance pipeline.',
     descriptionPt:
-      'Entregou sistemas de documentos de transporte CT-e e MDFe para logística em todo o território nacional para o grupo AB InBev. Liderou a migração da infraestrutura on-premises para Microsoft Azure, incluindo suporte on-call para fluxos de emissão durante janelas de pico de distribuição.',
+      'Operou emissao de documentos fiscais (CT-e, MDFe) para milhares de eventos de transporte diarios na distribuicao nacional da AB InBev. Uma unica interrupcao bloqueou um centro de distribuicao inteiro, enfileirando caminhoes ate a recuperacao. Liderou migracao de on-premises para Microsoft Azure. On-call para o pipeline de emissao.',
   },
   {
     company: 'Betha Systems',
@@ -46,8 +46,8 @@ export const experience: ExperienceEntry[] = [
     rolePt: 'Arquiteto de Software / Desenvolvedor Sênior',
     period: 'Jan 2010 - May 2021',
     description:
-      'Led migration of fiscal and tax systems for municipal clients from legacy monoliths to Spring Boot microservices on PostgreSQL, moving deploy cadence from monthly to daily. Worked full-stack on AngularJS UIs over the Java backend. Earlier work covered financial and ERP modules with Oracle query optimization.',
+      'Migrated fiscal and tax systems serving 850+ municipalities and 3,000+ public agencies from J2EE monoliths on Oracle and Sybase to Spring Boot microservices on PostgreSQL, moving millions of records to a multi-tenant cloud architecture. Used Kafka for high-volume data migration. Built AngularJS and JavaScript frontends that replaced rigid legacy interfaces for public servants. Moved container orchestration from OpenShift to Kubernetes and operated AWS workloads.',
     descriptionPt:
-      'Liderou a migração de sistemas fiscais e tributários para clientes municipais de monolitos legados para microsserviços Spring Boot no PostgreSQL, evoluindo o ciclo de deploy de mensal para diário. Atuou full-stack em interfaces AngularJS sobre o backend Java. Trabalhos anteriores abrangeram módulos financeiros e ERP com otimização de consultas Oracle.',
+      'Migrou sistemas fiscais e tributarios atendendo 850+ municipios e 3.000+ orgaos publicos de monolitos J2EE em Oracle e Sybase para microsservicos Spring Boot em PostgreSQL, movendo milhoes de registros para uma arquitetura cloud multi-tenant. Usou Kafka para migracao de dados em alto volume. Construiu frontends AngularJS e JavaScript que substituiram interfaces legadas rigidas. Moveu orquestracao de containers de OpenShift para Kubernetes e operou workloads AWS.',
   },
 ];
