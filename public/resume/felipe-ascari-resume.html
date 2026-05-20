@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Felipe Rodrigues Ascari</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+
+    :root {
+      --accent: #1E3A8A;
+      --accent-soft: #EEF2FF;
+      --ink: #0F172A;
+      --ink-muted: #475569;
+      --ink-faint: #64748B;
+      --rule: #CBD5E1;
+      --pill-bg: #F1F5F9;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;
+      font-size: 11px;
+      line-height: 1.5;
+      color: var(--ink);
+      background: #fff;
+      font-feature-settings: "liga" 0, "dlig" 0, "kern" 0;
+      font-variant-ligatures: no-common-ligatures;
+      font-kerning: none;
+      text-rendering: geometricPrecision;
+    }
+
+
+    .page {
+      width: 210mm;
+      padding: 10mm 14mm 8mm;
+    }
+
+    /* ── Header ── */
+    .header {
+      border-bottom: 2px solid var(--accent);
+      padding-bottom: 8px;
+      margin-bottom: 12px;
+    }
+    strong { word-spacing: 0.05em; }
+
+    .header h1 {
+      font-size: 26px;
+      font-weight: 700;
+      color: var(--accent);
+      line-height: 1.15;
+      word-spacing: 0.05em;
+    }
+    .header .role-line {
+      font-size: 12px;
+      font-weight: 500;
+      color: var(--ink);
+      margin-top: 2px;
+    }
+    .header .contact {
+      font-size: 10px;
+      color: var(--ink-muted);
+      margin-top: 6px;
+      font-family: 'JetBrains Mono', 'Menlo', monospace;
+    }
+    .header .contact a { color: var(--ink-muted); text-decoration: none; }
+    .header .contact .sep { color: var(--rule); margin: 0 6px; }
+
+    /* ── Section ── */
+    .section { margin-bottom: 6px; }
+    .section-title {
+      font-size: 10px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.4px;
+      color: var(--accent);
+      margin-bottom: 4px;
+      display: block;
+    }
+    .section-title::before {
+      content: '';
+      display: inline-block;
+      width: 14px;
+      height: 2px;
+      background: var(--accent);
+      vertical-align: middle;
+      margin-right: 8px;
+    }
+
+    /* ── Summary ── */
+    .summary {
+      font-size: 11px;
+      color: var(--ink);
+      padding-left: 10px;
+      border-left: 2px solid var(--accent-soft);
+      text-align: justify;
+    }
+    .summary strong { color: var(--accent); font-weight: 600; }
+
+    /* ── Skills (pills) ── */
+    .skills-group {
+      display: flex;
+      align-items: baseline;
+      gap: 8px;
+      margin-bottom: 3px;
+      font-size: 10px;
+      flex-wrap: wrap;
+    }
+    .skills-group .label {
+      flex: 0 0 95px;
+      font-weight: 600;
+      color: var(--accent);
+      text-transform: uppercase;
+      font-size: 9px;
+      letter-spacing: 0.7px;
+    }
+    .skills-group .pills { flex: 1; }
+    .pill {
+      display: inline-block;
+      background: var(--pill-bg);
+      color: var(--ink);
+      padding: 0 6px;
+      border-radius: 3px;
+      margin: 0 2px 2px 0;
+      font-size: 9.5px;
+      line-height: 1.7;
+    }
+    .pill.accent { background: var(--accent-soft); color: var(--accent); font-weight: 500; }
+
+    /* ── Experience (timeline) ── */
+    .timeline {
+      border-left: 2px solid var(--rule);
+      padding-left: 14px;
+      margin-left: 3px;
+    }
+    .job { margin-bottom: 6px; break-inside: avoid; position: relative; }
+    .job:last-child { margin-bottom: 0; }
+    .job::before {
+      content: '';
+      position: absolute;
+      left: -18px;
+      top: 5px;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--accent);
+      box-shadow: 0 0 0 2px #fff;
+    }
+    .job-header { margin-bottom: 2px; }
+    .job-title {
+      font-size: 11.5px;
+      font-weight: 600;
+      color: var(--ink);
+      word-spacing: 0.05em;
+    }
+    .job-title .company { color: var(--accent); font-weight: 700; }
+    .job-title .location { color: var(--ink-faint); font-weight: 400; font-size: 10.5px; }
+    .job-meta {
+      font-size: 10px;
+      color: var(--ink-muted);
+      font-family: 'JetBrains Mono', monospace;
+      margin-left: 6px;
+    }
+    .job ul { list-style: none; margin-top: 3px; }
+    .job li {
+      font-size: 10.5px;
+      color: var(--ink);
+      margin-bottom: 1px;
+      padding-left: 12px;
+      text-indent: -12px;
+      text-align: justify;
+    }
+    .job li::before {
+      content: '▸';
+      display: inline;
+      margin-right: 3px;
+      color: var(--accent);
+      font-size: 9px;
+    }
+    .job li strong { color: var(--ink); font-weight: 600; }
+
+    /* ── Thought Leadership ── */
+    .thought {
+      font-size: 10.5px;
+      color: var(--ink);
+      padding-left: 10px;
+      border-left: 2px solid var(--accent-soft);
+      text-align: justify;
+    }
+    .thought a { color: var(--accent); text-decoration: none; font-weight: 500; }
+    .thought a:hover { text-decoration: underline; }
+    .thought strong { color: var(--ink); font-weight: 600; }
+
+    /* ── Education & Languages ── */
+    .edu-item, .languages p {
+      font-size: 10.5px;
+      color: var(--ink);
+      margin-bottom: 2px;
+    }
+    .edu-item strong { color: var(--ink); font-weight: 600; }
+    .edu-item .meta { color: var(--ink-faint); font-family: 'JetBrains Mono', monospace; font-size: 10px; }
+
+    .earlier-title { font-style: italic; color: var(--ink-muted); }
+
+    @media print {
+      body { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+      .page { padding: 12mm 14mm 10mm; }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+
+    <!-- HEADER -->
+    <header class="header">
+      <h1>Felipe Rodrigues Ascari</h1>
+      <div class="role-line">Senior Go Engineer · Distributed Systems · Financial Infrastructure</div>
+      <div class="contact">
+        Brazil (Remote)<span class="sep">|</span>
+        felipeascari@gmail.com<span class="sep">|</span>
+        <a href="https://linkedin.com/in/felipe-ascari">linkedin.com/in/felipe-ascari</a><span class="sep">|</span>
+        <a href="https://felipeascari.dev">felipeascari.dev</a>
+      </div>
+    </header>
+
+    <!-- SUMMARY -->
+    <section class="section">
+      <h2 class="section-title">Summary</h2>
+      <p class="summary">
+        Senior <strong>Go</strong> engineer with 15+ years in distributed systems and financial infrastructure. Joined <strong>Mercado Livre</strong> to return to hands-on engineering at LATAM scale after an architecture role at Ambev. Integrated <strong>Mercado Envíos</strong> and <strong>Mercado Pago</strong> to serve <strong>3.7M shipments per day</strong> within a p99 budget of 100-200ms. Currently at <strong>McGraw Hill</strong>, building serverless financial workflows on AWS that have processed <strong>2.17M requests</strong> at Apdex 0.99.
+      </p>
+    </section>
+
+    <!-- SKILLS -->
+    <section class="section">
+      <h2 class="section-title">Skills</h2>
+      <div class="skills-group">
+        <span class="label">Programming</span>
+        <span class="pills"><span class="pill accent">Go</span><span class="pill">TypeScript / Node.js</span><span class="pill">Java</span><span class="pill">Solidity</span><span class="pill">SQL</span></span>
+      </div>
+      <div class="skills-group">
+        <span class="label">Backend</span>
+        <span class="pills"><span class="pill">Event-Driven</span><span class="pill">Microservices</span><span class="pill">DDD</span><span class="pill">Clean Architecture</span><span class="pill">gRPC</span><span class="pill">GraphQL</span><span class="pill">Kafka / NATS</span></span>
+      </div>
+      <div class="skills-group">
+        <span class="label">Cloud</span>
+        <span class="pills"><span class="pill">AWS (Lambda, SQS/SNS, ECS/Fargate, Step Functions)</span><span class="pill">Azure</span><span class="pill">Kubernetes</span><span class="pill">Terraform</span><span class="pill">GitHub Actions</span><span class="pill">Docker</span></span>
+      </div>
+      <div class="skills-group">
+        <span class="label">Data &amp; Ops</span>
+        <span class="pills"><span class="pill">PostgreSQL</span><span class="pill">Redis</span><span class="pill">DynamoDB</span><span class="pill">MongoDB</span><span class="pill">Datadog</span><span class="pill">OpenTelemetry</span><span class="pill">New Relic</span><span class="pill">Grafana</span></span>
+      </div>
+      <div class="skills-group">
+        <span class="label">AI Tooling</span>
+        <span class="pills"><span class="pill">Agentic Workflows</span><span class="pill">LLM APIs (Claude)</span><span class="pill">GitHub Copilot</span></span>
+      </div>
+    </section>
+
+    <!-- EXPERIENCE -->
+    <section class="section">
+      <h2 class="section-title">Experience</h2>
+      <div class="timeline">
+
+        <div class="job">
+          <div class="job-header">
+            <div class="job-title">Senior Engineer, <span class="company">McGraw Hill Educational</span> <span class="location">· USA, Remote</span><span class="job-meta"> · Sep 2024 - Present</span></div>
+          </div>
+          <ul>
+            <li>Designed the <strong>Go</strong> API for consolidated pricing from scratch to replace a model fragmented across four sources. This gave the commercial team direct control over offer logic. Unit, integration, repository, and handler tests gate every deploy.</li>
+            <li>Designed serverless <strong>AWS</strong> workflows to replace manual financial processes. Used <strong>Lambda</strong>, SQS/SNS, and event-driven state machines with custom <strong>New Relic</strong> dashboards for APM throughput and p95/p99 latency tracking. The service processed <strong>2.17M requests in 6 months</strong> at <strong>Apdex 0.99</strong>.</li>
+            <li>Automated backport PRs on merge via <strong>GitHub Actions</strong> and shipped internal agentic tooling for code analysis and design review, cutting manual overhead from the release cycle.</li>
+          </ul>
+        </div>
+
+        <div class="job">
+          <div class="job-header">
+            <div class="job-title">Senior Engineer, <span class="company">Mercado Livre</span> <span class="location">· Brazil, Remote</span><span class="job-meta"> · Jan 2022 - Sep 2024</span></div>
+          </div>
+          <ul>
+            <li>Built a <strong>TypeScript</strong> BFF to aggregate and decorate data from <strong>Mercado Envíos</strong> and <strong>Mercado Pago</strong> backends, serving frontend clients and partner systems through a consistent API contract. Coordinated shipping forecast and payment flow integrations across LATAM's largest marketplace.</li>
+            <li>Built event-driven <strong>Go</strong> microservices for the <strong>Mercado Envíos</strong> logistics pipeline shipping <strong>3.7M items per day across LATAM</strong> within a squad p99 budget of 100-200ms. Led technical reviews across multiple delivery cycles and owned critical shipment flows on <strong>Fury</strong>, MELI's <strong>Kubernetes</strong> platform.</li>
+            <li>Owned the package-vs-vehicle cost calculation for the daily logistics plan, replacing spreadsheets with systematic carrier contract analysis that eliminated unnecessary truck reservations.</li>
+          </ul>
+        </div>
+
+        <div class="job">
+          <div class="job-header">
+            <div class="job-title">Software Architect, <span class="company">Ambev Tech</span> <span class="location">· Brazil, Remote</span><span class="job-meta"> · May 2021 - Jan 2022</span></div>
+          </div>
+          <ul>
+            <li>Operated fiscal document issuance (CT-e, MDF-e, NF-e) across <strong>AB InBev</strong>'s Brazilian distribution network: <strong>89 distribution centers</strong>, <strong>207 third-party distributors</strong>, and <strong>1M points of sale</strong>. Led a strangler migration from on-premise data warehouse to Azure cloud. Completed application security remediation to meet <strong>AB InBev</strong> global standards.</li>
+          </ul>
+        </div>
+
+        <div class="job">
+          <div class="job-header">
+            <div class="job-title">Software Architect / Senior Developer, <span class="company">Betha Systems</span> <span class="location">· Brazil, On-site</span><span class="job-meta"> · Jan 2010 - May 2021</span></div>
+          </div>
+          <ul>
+            <li>Led technical and architecture decisions across teams of <strong>3 to 6 engineers</strong> for 11 years. For <strong>3 years</strong>, served as dedicated architect for one product squad, driving decisions across 6 core municipal finance modules. Managed critical technical analysis for incident resolution and roadmap planning.</li>
+            <li>Designed and operated government financial systems for <strong>850+ municipalities</strong> across <strong>23 states</strong>. These systems covered public-sector accounting, treasury management, trial-balance validation, account reconciliation, and fiscal transparency, processing millions of fiscal documents per month through high-volume electronic tax invoicing. Enforced engineering quality gates with 0% critical defects and 80%+ test coverage.</li>
+            <li>Migrated from J2EE monoliths to a multi-tenant cloud architecture serving <strong>3,000+ public agencies</strong> without interrupting active fiscal operations.</li>
+          </ul>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- THOUGHT LEADERSHIP -->
+    <section class="section">
+      <h2 class="section-title">Writing &amp; Open Source</h2>
+      <p class="thought">
+      Publishes technical articles on <strong>Go internals</strong>, concurrency, and OpenTelemetry at <a href="https://felipeascari.dev">felipeascari.dev</a>, Medium, dev.to, and LinkedIn. Built <a href="https://github.com/fascari/cashback-platform">cashback-platform</a>, a Go monorepo that issues ERC-20 cashback tokens on Ethereum using go-ethereum, Solidity, NATS JetStream, and gRPC. Built and maintains <a href="https://github.com/fascari/ai-config">ai-config</a>, a library of agentic AI workflows and LLM tooling.
+      </p>
+    </section>
+
+    <!-- EDUCATION & LANGUAGES -->
+    <section class="section">
+      <h2 class="section-title">Education</h2>
+      <div class="edu-item"><strong>Postgraduate in Software Engineering</strong>, IPG, Brazil <span class="meta">· 2011–2013</span></div>
+      <div class="edu-item"><strong>B.Sc. in Information Systems</strong> (Honorable Mention), University of Southern Santa Catarina, Brazil <span class="meta">· 2006–2009</span></div>
+      <div class="edu-item" style="margin-top: 4px;"><strong>Languages</strong>: Portuguese (Native) · <strong>English (Professional Working Proficiency)</strong> · Spanish (Intermediate)</div>
+    </section>
+
+  </div>
+</body>
+</html>
