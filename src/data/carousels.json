@@ -1,5 +1,13 @@
 [
   {
+    "title": "One integration suite. Every Go service.",
+    "link": "https://www.linkedin.com/feed/update/urn:li:activity:7465522293687869440/",
+    "pubDate": "2026-05-27T19:00:00Z",
+    "description": "Real database, real fixtures, no mocks. How to build an integration suite in Go that you can actually trust, with testcontainers and go-testfixtures.",
+    "cover_image": "https://i.imgur.com/LxUCN1S.png",
+    "tags": ["go", "testing", "backend"]
+  },
+  {
     "title": "Six consistency problems in a Go crypto backend",
     "link": "https://www.linkedin.com/posts/felipe-ascari_fintech-on-go-part-1-what-go-solves-in-activity-7453201039509348352-0k4K",
     "pubDate": "2026-04-23T22:00:01Z",
