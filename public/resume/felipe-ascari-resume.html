@@ -134,17 +134,16 @@
       padding-left: 14px;
       margin-left: 3px;
     }
-    .job { margin-bottom: 6px; break-inside: avoid; position: relative; }
+    .job { margin-bottom: 6px; break-inside: avoid; }
     .job:last-child { margin-bottom: 0; }
-    .job::before {
-      content: '';
-      position: absolute;
-      left: -18px;
-      top: 5px;
+    .job-dot {
+      float: left;
       width: 8px;
       height: 8px;
       border-radius: 50%;
       background: var(--accent);
+      margin-left: -22px;
+      margin-top: 5px;
       box-shadow: 0 0 0 2px #fff;
     }
     .job-header { margin-bottom: 2px; }
@@ -249,11 +248,11 @@
       </div>
       <div class="skills-group">
         <span class="label">Data &amp; Ops</span>
-        <span class="pills"><span class="pill">PostgreSQL</span><span class="pill">Redis</span><span class="pill">DynamoDB</span><span class="pill">MongoDB</span><span class="pill">Datadog</span><span class="pill">OpenTelemetry</span><span class="pill">New Relic</span><span class="pill">Grafana</span></span>
+        <span class="pills"><span class="pill">PostgreSQL</span><span class="pill">Redis</span><span class="pill">DynamoDB</span><span class="pill">MongoDB</span><span class="pill">Prometheus</span><span class="pill">Grafana</span><span class="pill">Datadog</span><span class="pill">OpenTelemetry</span><span class="pill">New Relic</span></span>
       </div>
       <div class="skills-group">
         <span class="label">AI Tooling</span>
-        <span class="pills"><span class="pill">Agentic Workflows</span><span class="pill">LLM APIs (Claude)</span><span class="pill">GitHub Copilot</span></span>
+        <span class="pills"><span class="pill">Agentic Workflows</span><span class="pill">LLM APIs (Claude, Grok)</span><span class="pill">GitHub Copilot</span><span class="pill">OpenAI Codex</span></span>
       </div>
     </section>
 
@@ -263,6 +262,18 @@
       <div class="timeline">
 
         <div class="job">
+          <span class="job-dot"></span>
+          <div class="job-header">
+            <div class="job-title">AI Expert Trainer, <span class="company">xAI</span> <span class="location">· via micro1, Remote</span><span class="job-meta"> · Apr 2026 - Jun 2026 (Contract, Part-time)</span></div>
+          </div>
+          <ul>
+            <li>Evaluated <strong>Go</strong> repositories and ranked model outputs from <strong>Grok</strong> and <strong>Claude Opus</strong>, running local CLI and container workflows inside xAI's internal StarFleet tooling.</li>
+            <li>Assessed real-world Go libraries and frameworks, including <strong>Terraform</strong>, <strong>GORM</strong>, <strong>Gin</strong>, and <strong>Kubernetes</strong>, submitting original Go projects as evaluation benchmarks for model training data.</li>
+          </ul>
+        </div>
+
+        <div class="job">
+          <span class="job-dot"></span>
           <div class="job-header">
             <div class="job-title">Senior Engineer, <span class="company">McGraw Hill Educational</span> <span class="location">· USA, Remote</span><span class="job-meta"> · Sep 2024 - Present</span></div>
           </div>
@@ -274,32 +285,35 @@
         </div>
 
         <div class="job">
+          <span class="job-dot"></span>
           <div class="job-header">
             <div class="job-title">Senior Engineer, <span class="company">Mercado Livre</span> <span class="location">· Brazil, Remote</span><span class="job-meta"> · Jan 2022 - Sep 2024</span></div>
           </div>
           <ul>
             <li>Built a <strong>TypeScript</strong> BFF to aggregate and decorate data from <strong>Mercado Envíos</strong> and <strong>Mercado Pago</strong> backends, serving frontend clients and partner systems through a consistent API contract. Coordinated shipping forecast and payment flow integrations across LATAM's largest marketplace.</li>
-            <li>Built event-driven <strong>Go</strong> microservices for the <strong>Mercado Envíos</strong> logistics pipeline shipping <strong>3.7M items per day across LATAM</strong> within a squad p99 budget of 100-200ms. Led technical reviews across multiple delivery cycles and owned critical shipment flows end to end.</li>
+            <li>Built event-driven <strong>Go</strong> microservices for the <strong>Mercado Envíos</strong> logistics pipeline shipping <strong>3.7M items per day across LATAM</strong> within a squad p99 budget of 100-200ms. Led technical reviews and owned the full lifecycle of critical shipment flows.</li>
             <li>Owned the package-vs-vehicle cost calculation for the daily logistics plan, replacing spreadsheets with systematic carrier contract analysis that eliminated unnecessary truck reservations.</li>
           </ul>
         </div>
 
         <div class="job">
+          <span class="job-dot"></span>
           <div class="job-header">
             <div class="job-title">Software Architect, <span class="company">Ambev Tech</span> <span class="location">· Brazil, Remote</span><span class="job-meta"> · May 2021 - Jan 2022</span></div>
           </div>
           <ul>
-            <li>Operated fiscal document issuance (CT-e, MDF-e, NF-e) across <strong>AB InBev</strong>'s Brazilian distribution network: <strong>89 distribution centers</strong>, <strong>207 third-party distributors</strong>, and <strong>1M points of sale</strong>. Led a strangler migration from on-premise data warehouse to Azure cloud. Completed application security remediation to meet <strong>AB InBev</strong> global standards.</li>
+            <li>Operated fiscal document issuance (CT-e, MDF-e, NF-e) across <strong>AB InBev</strong>'s distribution network: <strong>89 centers</strong>, <strong>207 distributors</strong>, and <strong>1M points of sale</strong>. Led a migration to Azure cloud and completed security remediation to <strong>AB InBev</strong> standards.</li>
           </ul>
         </div>
 
         <div class="job">
+          <span class="job-dot"></span>
           <div class="job-header">
             <div class="job-title">Software Architect / Senior Developer, <span class="company">Betha Systems</span> <span class="location">· Brazil, On-site</span><span class="job-meta"> · Jan 2010 - May 2021</span></div>
           </div>
           <ul>
-            <li>Led technical and architecture decisions across teams of <strong>3 to 6 engineers</strong> for 11 years. For <strong>3 years</strong>, served as dedicated architect for one product squad, driving decisions across 6 core municipal finance modules. Managed critical technical analysis for incident resolution and roadmap planning.</li>
-            <li>Designed and operated government financial systems for <strong>850+ municipalities</strong> across <strong>23 states</strong>. These systems covered public-sector accounting, treasury management, trial-balance validation, account reconciliation, and fiscal transparency, processing millions of fiscal documents per month through high-volume electronic tax invoicing. Enforced engineering quality gates with 0% critical defects and 80%+ test coverage.</li>
+            <li>Led technical and architecture decisions across teams of <strong>3 to 6 engineers</strong> for 11 years, serving <strong>3 years</strong> as dedicated architect for one product squad across 6 core municipal finance modules.</li>
+            <li>Designed and operated government financial systems for <strong>850+ municipalities</strong> across <strong>23 states</strong>, covering accounting, treasury, and fiscal transparency. Enforced 0% critical defects and 80%+ test coverage.</li>
             <li>Migrated from J2EE monoliths to a multi-tenant cloud architecture serving <strong>3,000+ public agencies</strong> without interrupting active fiscal operations.</li>
           </ul>
         </div>
