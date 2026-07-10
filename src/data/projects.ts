@@ -61,4 +61,13 @@ export const projects: Project[] = [
     url: 'https://github.com/fascari/offer-eligibility-service',
     tag: 'Go',
   },
+  {
+    name: 'token-swap-workbench',
+    description:
+      'Go + React workbench for quoting, submitting, and orchestrating bot transactions against a simulated Rust chain service.',
+    descriptionPt:
+      'Workbench em Go + React para cotação, submissão e orquestração de transações de bots contra um serviço de chain Rust simulado.',
+    url: 'https://github.com/fascari/token-swap-workbench',
+    tag: 'Go',
+  },
 ];
