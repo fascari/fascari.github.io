@@ -62,8 +62,8 @@ export interface Translations {
 export const translations: Record<Lang, Translations> = {
   en: {
     meta: {
-      title: 'Felipe Ascari | Backend Engineer',
-      description: 'Senior Backend Engineer specializing in Go and distributed systems.',
+      title: 'Felipe Ascari | Senior Engineer',
+      description: 'Senior Engineer specializing in distributed systems and financial infrastructure.',
     },
     nav: {
       about: 'About',
@@ -121,8 +121,8 @@ export const translations: Record<Lang, Translations> = {
 
   pt: {
     meta: {
-      title: 'Felipe Ascari | Senior Backend Engineer',
-      description: 'Senior Backend Engineer especializado em Go e sistemas distribuidos.',
+      title: 'Felipe Ascari | Senior Engineer',
+      description: 'Senior Engineer especializado em sistemas distribuídos e infraestrutura financeira.',
     },
     nav: {
       about: 'Sobre',

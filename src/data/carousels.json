@@ -1,5 +1,21 @@
 [
   {
+    "title": "Go Concurrency: Mutex, RWMutex, and sync.Once",
+    "link": "https://www.linkedin.com/feed/update/urn:li:activity:7485106273009590272/",
+    "pubDate": "2026-07-22T19:00:00Z",
+    "description": "Continuing my Go back-to-basics series, this time covering shared state with Mutex, RWMutex, and sync.Once, with a small example and a few notes along the way.",
+    "cover_image": "https://i.imgur.com/XrRUxmS.png",
+    "tags": ["go", "concurrency", "backend"]
+  },
+  {
+    "title": "Goroutines + WaitGroup.Go",
+    "link": "https://www.linkedin.com/feed/update/urn:li:activity:7483264142586589184/",
+    "pubDate": "2026-07-13T19:00:00Z",
+    "description": "Five years into Go and back to basics, why wg.Add must happen before go, why loop variable capture broke concurrent loops before Go 1.22, and what WaitGroup.Go actually guarantees under the hood. First of a back-to-basics concurrency series.",
+    "cover_image": "https://i.imgur.com/dwcNtgu.png",
+    "tags": ["go", "concurrency", "backend"]
+  },
+  {
     "title": "One integration suite. Every Go service.",
     "link": "https://www.linkedin.com/feed/update/urn:li:activity:7465522293687869440/",
     "pubDate": "2026-05-27T19:00:00Z",

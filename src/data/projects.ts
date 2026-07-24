@@ -8,6 +8,33 @@ export interface Project {
 
 export const projects: Project[] = [
   {
+    name: 'ai-config',
+    description:
+      'Shared AI coding rules, workflow skills, and provider configs behind every agentic workflow I run, portable across Copilot, Claude Code, Codex, and opencode.',
+    descriptionPt:
+      'Regras de código, skills de workflow e configurações de provider compartilhadas por trás de cada fluxo agêntico que uso, portáteis entre Copilot, Claude Code, Codex e opencode.',
+    url: 'https://github.com/fascari/ai-config',
+    tag: 'AI',
+  },
+  {
+    name: 'vehicle-loan-apr-service',
+    description:
+      'Stateless HTTP service that calculates a vehicle loan annual percentage rate (APR) from loan terms, credit profile, and vehicle attributes.',
+    descriptionPt:
+      'Serviço HTTP stateless que calcula a taxa anual (APR) de um empréstimo veicular a partir dos termos do empréstimo, perfil de crédito e atributos do veículo.',
+    url: 'https://github.com/fascari/vehicle-loan-apr-service',
+    tag: 'TypeScript',
+  },
+  {
+    name: 'go-concurrency-patterns',
+    description:
+      'Go concurrency primitives explored through minimal, race-tested examples, benchmarks, and canonical literature references, from goroutines to atomics.',
+    descriptionPt:
+      'Primitivas de concorrência em Go exploradas com exemplos mínimos testados contra race conditions, benchmarks e referências da literatura canônica, de goroutines a atomics.',
+    url: 'https://github.com/fascari/go-concurrency-patterns',
+    tag: 'Go',
+  },
+  {
     name: 'cashback-platform',
     description:
       'Go monorepo issuing cashback as ERC-20 tokens on Ethereum. Uses go-ethereum, Solidity, NATS JetStream for idempotent minting, and gRPC for wallet operations.',
