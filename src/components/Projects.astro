@@ -25,7 +25,11 @@ const { t, lang } = Astro.props;
             <span class="card-arrow">↗</span>
           </div>
           <p class="card-desc">{lang === 'pt' ? p.descriptionPt : p.description}</p>
-          <span class="card-tag">{p.tag}</span>
+          <div class="card-tags">
+            {p.tags.map((tag) => (
+              <span class="card-tag">{tag}</span>
+            ))}
+          </div>
         </a>
       ))}
     </div>
@@ -96,6 +100,12 @@ const { t, lang } = Astro.props;
     color: var(--text-muted);
     line-height: 1.6;
     flex: 1;
+  }
+
+  .card-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
   }
 
   .card-tag {

@@ -3,7 +3,7 @@ export interface Project {
   description: string;
   descriptionPt: string;
   url: string;
-  tag: string;
+  tags: string[];
 }
 
 export const projects: Project[] = [
@@ -14,7 +14,7 @@ export const projects: Project[] = [
     descriptionPt:
       'Regras de código, skills de workflow e configurações de provider compartilhadas por trás de cada fluxo agêntico que uso, portáteis entre Copilot, Claude Code, Codex e opencode.',
     url: 'https://github.com/fascari/ai-config',
-    tag: 'AI',
+    tags: ['AI'],
   },
   {
     name: 'vehicle-loan-apr-service',
@@ -23,7 +23,7 @@ export const projects: Project[] = [
     descriptionPt:
       'Serviço HTTP stateless que calcula a taxa anual (APR) de um empréstimo veicular a partir dos termos do empréstimo, perfil de crédito e atributos do veículo.',
     url: 'https://github.com/fascari/vehicle-loan-apr-service',
-    tag: 'TypeScript',
+    tags: ['TypeScript'],
   },
   {
     name: 'go-concurrency-patterns',
@@ -32,7 +32,7 @@ export const projects: Project[] = [
     descriptionPt:
       'Primitivas de concorrência em Go exploradas com exemplos mínimos testados contra race conditions, benchmarks e referências da literatura canônica, de goroutines a atomics.',
     url: 'https://github.com/fascari/go-concurrency-patterns',
-    tag: 'Go',
+    tags: ['Go'],
   },
   {
     name: 'cashback-platform',
@@ -41,7 +41,7 @@ export const projects: Project[] = [
     descriptionPt:
       'Monorepo Go que emite cashback como tokens ERC-20 no Ethereum. Usa go-ethereum, Solidity, NATS JetStream para minting idempotente e gRPC para operações de carteira.',
     url: 'https://github.com/fascari/cashback-platform',
-    tag: 'Go',
+    tags: ['Go'],
   },
   {
     name: 'tcp-message-processor',
@@ -50,7 +50,7 @@ export const projects: Project[] = [
     descriptionPt:
       'Sistema de processamento de mensagens TCP com distribuição de tarefas, validação criptográfica e processamento assíncrono de estatísticas.',
     url: 'https://github.com/fascari/tcp-message-processor',
-    tag: 'Go',
+    tags: ['Go'],
   },
   {
     name: 'exchange-crypto-service-api',
@@ -59,16 +59,7 @@ export const projects: Project[] = [
     descriptionPt:
       'API de serviço para operações e integrações de exchange de criptomoedas.',
     url: 'https://github.com/fascari/exchange-crypto-service-api',
-    tag: 'Go',
-  },
-  {
-    name: 'kv-store',
-    description:
-      'Simple key-value storage implementation focused on correctness and internal behavior.',
-    descriptionPt:
-      'Implementação de armazenamento chave-valor focada em correção e comportamento interno.',
-    url: 'https://github.com/fascari/kv-store',
-    tag: 'Go',
+    tags: ['Go'],
   },
   {
     name: 'go-runtime-demo',
@@ -77,7 +68,7 @@ export const projects: Project[] = [
     descriptionPt:
       'Projeto educacional focado em conceitos de runtime e blockchain, com implementação intencionalmente simples.',
     url: 'https://github.com/fascari/go-runtime-demo',
-    tag: 'Go',
+    tags: ['Go'],
   },
   {
     name: 'offer-eligibility-service',
@@ -86,7 +77,7 @@ export const projects: Project[] = [
     descriptionPt:
       'Serviço responsável por avaliar elegibilidade de ofertas com base em regras de negócio e restrições.',
     url: 'https://github.com/fascari/offer-eligibility-service',
-    tag: 'Go',
+    tags: ['Go'],
   },
   {
     name: 'token-swap-workbench',
@@ -95,6 +86,6 @@ export const projects: Project[] = [
     descriptionPt:
       'Workbench em Go + React para cotação, submissão e orquestração de transações de bots contra um serviço de chain Rust simulado.',
     url: 'https://github.com/fascari/token-swap-workbench',
-    tag: 'Go',
+    tags: ['Go', 'React'],
   },
 ];
