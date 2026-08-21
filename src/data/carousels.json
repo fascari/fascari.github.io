@@ -1,5 +1,13 @@
 [
   {
+    "title": "Go Channels and Ownership",
+    "link": "https://www.linkedin.com/posts/felipe-ascari_channels-and-ownership-ugcPost-7496338486745178112-98FP/",
+    "pubDate": "2026-08-20T19:00:00Z",
+    "description": "Continuing my Go back-to-basics series, this time I'm covering channels, who owns close, and what a buffer actually changes. I went back through the topic with a small example and a few notes along the way.",
+    "cover_image": "https://i.imgur.com/pF6goUO.png",
+    "tags": ["go", "concurrency", "backend"]
+  },
+  {
     "title": "Go Concurrency: Mutex, RWMutex, and sync.Once",
     "link": "https://www.linkedin.com/feed/update/urn:li:activity:7485106273009590272/",
     "pubDate": "2026-07-22T19:00:00Z",
