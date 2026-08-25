@@ -44,6 +44,7 @@ export const experience: ExperienceEntry[] = [
     company: 'Ambev Tech',
     role: 'Software Architect / Senior Engineer',
     rolePt: 'Software Architect / Senior Engineer',
+    period: 'May 2021 - Jan 2022',
     description:
       'Operated fiscal document issuance (CT-e, MDFe) for thousands of daily transportation events across AB InBev\'s nationwide distribution. A single outage once blocked an entire distribution center, queuing trucks until throughput recovered. Led migration from on-premises to Microsoft Azure. On-call for the issuance pipeline.',
     descriptionPt:
@@ -53,9 +54,10 @@ export const experience: ExperienceEntry[] = [
     company: 'Betha Systems',
     role: 'Software Architect / Senior Engineer',
     rolePt: 'Software Architect / Senior Engineer',
+    period: 'Jan 2010 - May 2021',
     description:
-      'Migrated fiscal and tax systems serving 850+ municipalities and 3,000+ public agencies from J2EE monoliths on Oracle and Sybase to Spring Boot microservices on PostgreSQL, moving millions of records to a multi-tenant cloud architecture. Used Kafka for high-volume data migration. Built AngularJS and JavaScript frontends that replaced rigid legacy interfaces for public servants. Moved container orchestration from OpenShift to Kubernetes and operated AWS workloads.',
+      'Migrated fiscal and tax systems serving 850+ municipalities and 3,000+ public agencies from J2EE monoliths on Oracle and Sybase to Spring Boot microservices on PostgreSQL, moving millions of records to a multi-tenant cloud architecture. Used Kafka for high-volume data migration. Built AngularJS and JavaScript frontends that replaced rigid legacy interfaces for public servants. Operated Kubernetes and AWS workloads for the platform.',
     descriptionPt:
-      'Migrou sistemas fiscais e tributarios atendendo 850+ municipios e 3.000+ orgaos publicos de monolitos J2EE em Oracle e Sybase para microsservicos Spring Boot em PostgreSQL, movendo milhoes de registros para uma arquitetura cloud multi-tenant. Usou Kafka para migracao de dados em alto volume. Construiu frontends AngularJS e JavaScript que substituiram interfaces legadas rigidas. Moveu orquestracao de containers de OpenShift para Kubernetes e operou workloads AWS.',
+      'Migrou sistemas fiscais e tributarios atendendo 850+ municipios e 3.000+ orgaos publicos de monolitos J2EE em Oracle e Sybase para microsservicos Spring Boot em PostgreSQL, movendo milhoes de registros para uma arquitetura cloud multi-tenant. Usou Kafka para migracao de dados em alto volume. Construiu frontends AngularJS e JavaScript que substituiram interfaces legadas rigidas. Operou workloads Kubernetes e AWS para a plataforma.',
   },
 ];
