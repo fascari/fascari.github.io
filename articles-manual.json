@@ -29,7 +29,8 @@
     "content": "",
     "cover_image": "https://cdn-images-1.medium.com/max/688/1*sAGPyhVV5zxiCFbQLsQ8HA.png",
     "source": "linkedin",
-    "tags": ["Go", "Distributed Systems", "Redis"]
+    "tags": ["Go", "Distributed Systems", "Redis"],
+    "readTimeMinutes": 11
   },
   {
     "title": "Understanding Go's Scheduler: How Goroutine Management Works",
@@ -39,7 +40,8 @@
     "content": "",
     "cover_image": "https://cdn-images-1.medium.com/max/1015/1*f9kCroGIEZ6KPHRXHTCkSA.png",
     "source": "linkedin",
-    "tags": ["Go", "Concurrency"]
+    "tags": ["Go", "Concurrency"],
+    "readTimeMinutes": 20
   },
   {
     "title": "Understanding Performance Profiling in Go",
@@ -49,6 +51,7 @@
     "content": "",
     "cover_image": "https://cdn-images-1.medium.com/max/892/1*AsUbfCLd3ARBAiZsa56DpA.png",
     "source": "linkedin",
-    "tags": ["Go", "Performance"]
+    "tags": ["Go", "Performance"],
+    "readTimeMinutes": 20
   }
 ]

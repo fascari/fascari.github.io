@@ -41,7 +41,8 @@
       "Go",
       "Distributed Systems",
       "Redis"
-    ]
+    ],
+    "readTimeMinutes": 11
   },
   {
     "title": "Understanding Go's Scheduler: How Goroutine Management Works",
@@ -54,7 +55,8 @@
     "tags": [
       "Go",
       "Concurrency"
-    ]
+    ],
+    "readTimeMinutes": 20
   },
   {
     "title": "Understanding Performance Profiling in Go",
@@ -67,7 +69,8 @@
     "tags": [
       "Go",
       "Performance"
-    ]
+    ],
+    "readTimeMinutes": 20
   },
   {
     "title": "GORM in Go: My Experience and Trade-offs",
