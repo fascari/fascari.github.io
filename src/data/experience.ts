@@ -15,9 +15,9 @@ export const experience: ExperienceEntry[] = [
     rolePt: 'Senior Software Engineer',
     period: 'Jul 2026 - Present',
     description:
-      'Brought in primarily for Go expertise, now applying it on the AI-platform team. Building in Go and TypeScript on the model layer behind AI-powered features across the ecommerce product.',
+      'Part of a small, autonomous team building in Go, TypeScript, React, GraphQL, and Postgres on GCP, powering the model layer behind AI-powered features for an ecommerce platform used in 40+ countries.',
     descriptionPt:
-      'Contratado principalmente pela experiencia em Go, hoje aplicada no time de AI-platform. Constroi em Go e TypeScript a camada de modelo por tras de funcionalidades de IA no produto de ecommerce.',
+      'Parte de um time pequeno e autonomo, construindo em Go, TypeScript, React, GraphQL e Postgres na GCP, sustentando a camada de modelo por tras de funcionalidades de IA para uma plataforma de ecommerce usada em 40+ paises.',
     current: true,
   },
   {
