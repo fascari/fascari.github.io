@@ -10,15 +10,25 @@ export interface ExperienceEntry {
 
 export const experience: ExperienceEntry[] = [
   {
+    company: 'Sticker Mule',
+    role: 'Senior Software Engineer',
+    rolePt: 'Senior Software Engineer',
+    period: 'Jul 2026 - Present',
+    description:
+      'Brought in primarily for Go expertise, now applying it on the AI-platform team. Building in Go and TypeScript on the model layer behind AI-powered features across the ecommerce product.',
+    descriptionPt:
+      'Contratado principalmente pela experiencia em Go, hoje aplicada no time de AI-platform. Constroi em Go e TypeScript a camada de modelo por tras de funcionalidades de IA no produto de ecommerce.',
+    current: true,
+  },
+  {
     company: 'McGraw Hill Educational',
     role: 'Senior Engineer',
     rolePt: 'Senior Engineer',
-    period: 'Sep 2024 - Present',
+    period: 'Sep 2024 - Jul 2026',
     description:
-      'Consolidated pricing rules from multiple internal sources into a single Go API, giving the commercial team one place to manage offer logic. Built with DDD and Clean Architecture. Designed serverless workflows on AWS (Lambda, Step Functions, SQS, SNS) to replace manual financial processes. Service runs at Apdex 0.98 with error rate under 0.5%. Also contributed to the Angular admin UI.',
+      'Consolidated pricing rules from multiple internal sources into a single Go API, giving the commercial team one place to manage offer logic. Built with DDD and Clean Architecture. Designed serverless workflows on AWS (Lambda, Step Functions, SQS, SNS) to replace manual financial processes. Service runs at Apdex 0.99 with error rate under 0.5%. Also contributed to the Angular admin UI.',
     descriptionPt:
-      'Consolidou regras de precificação de diversas fontes internas em uma API Go, dando ao time comercial um ponto para gerenciar a logica de ofertas. Construido com DDD e Clean Architecture. Projetou fluxos serverless na AWS (Lambda, Step Functions, SQS, SNS) substituindo processos financeiros manuais. Servico roda com Apdex 0.98 e taxa de erro abaixo de 0.5%. Tambem contribuiu para a interface Angular.',
-    current: true,
+      'Consolidou regras de precificação de diversas fontes internas em uma API Go, dando ao time comercial um ponto para gerenciar a logica de ofertas. Construido com DDD e Clean Architecture. Projetou fluxos serverless na AWS (Lambda, Step Functions, SQS, SNS) substituindo processos financeiros manuais. Servico roda com Apdex 0.99 e taxa de erro abaixo de 0.5%. Tambem contribuiu para a interface Angular.',
   },
   {
     company: 'Mercado Livre',
