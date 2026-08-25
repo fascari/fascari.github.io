@@ -21,6 +21,7 @@ from pathlib import Path
 
 MEDIUM_FEED = "https://medium.com/feed/@felipe.ascari_49171"
 DEVTO_FEED = "https://dev.to/feed/felipe_ascari"
+DEVTO_API = "https://dev.to/api/articles?username=felipe_ascari&per_page=100"
 MANUAL_FILE = Path(__file__).parent / "articles-manual.json"
 OUTPUT = Path(__file__).parent / "public" / "articles.json"
 
@@ -58,6 +59,19 @@ def parse_rss(xml_text: str, source: str) -> list:
             "tags": tags,
         })
     return items
+
+
+def fetch_devto_reading_times() -> dict:
+    """Dev.to's RSS feed has no reading-time field, and the description-based
+    estimate badly undercounts real articles (their RSS excerpt is only a
+    couple sentences). The public API returns the real reading_time_minutes
+    dev.to itself computes from the full article body, so fetch that
+    separately and key it by normalized title for lookup.
+    """
+    req = urllib.request.Request(DEVTO_API, headers={"User-Agent": "Mozilla/5.0"})
+    with urllib.request.urlopen(req, timeout=15) as resp:
+        articles = json.loads(resp.read().decode("utf-8"))
+    return {normalize(a["title"]): a["reading_time_minutes"] for a in articles}
 
 
 def load_manual() -> list:
@@ -116,6 +130,21 @@ if __name__ == "__main__":
     except Exception as e:
         errors.append(f"Dev.to RSS failed: {e}")
         print(f"Dev.to  : FAILED ({e})", file=sys.stderr)
+
+    try:
+        reading_times = fetch_devto_reading_times()
+        for article in devto:
+            mins = reading_times.get(normalize(article["title"]))
+            if mins:
+                article["readTimeMinutes"] = mins
+        for article in manual:
+            if article.get("source") == "devto" and not article.get("readTimeMinutes"):
+                mins = reading_times.get(normalize(article["title"]))
+                if mins:
+                    article["readTimeMinutes"] = mins
+    except Exception as e:
+        errors.append(f"Dev.to reading-time API failed: {e}")
+        print(f"Dev.to reading times: FAILED ({e})", file=sys.stderr)
 
     merged = merge(manual, medium, devto)
     OUTPUT.write_text(json.dumps(merged, ensure_ascii=False, indent=2), encoding="utf-8")

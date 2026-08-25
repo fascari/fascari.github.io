@@ -7,7 +7,8 @@
     "content": "",
     "cover_image": "https://i.imgur.com/dAisLyw.png",
     "source": "devto",
-    "tags": ["Go", "Fintech", "Blockchain"]
+    "tags": ["Go", "Fintech", "Blockchain"],
+    "readTimeMinutes": 13
   },
   {
     "title": "Fintech on Go: Signing, event loops, and replay protection without an SDK (Part 2)",
@@ -17,7 +18,8 @@
     "content": "",
     "cover_image": "https://i.imgur.com/T9YpQ4K.png",
     "source": "devto",
-    "tags": ["Go", "Fintech", "Blockchain"]
+    "tags": ["Go", "Fintech", "Blockchain"],
+    "readTimeMinutes": 10
   },
   {
     "title": "Distributed Locks and Fencing Tokens",

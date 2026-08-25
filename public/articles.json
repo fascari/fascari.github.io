@@ -11,7 +11,8 @@
       "Go",
       "Fintech",
       "Blockchain"
-    ]
+    ],
+    "readTimeMinutes": 10
   },
   {
     "title": "Fintech on Go: what the language solves in a crypto backend (Part 1)",
@@ -25,7 +26,8 @@
       "Go",
       "Fintech",
       "Blockchain"
-    ]
+    ],
+    "readTimeMinutes": 13
   },
   {
     "title": "Distributed Locks and Fencing Tokens",

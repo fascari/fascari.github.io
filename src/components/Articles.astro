@@ -55,7 +55,8 @@ const { t } = Astro.props;
     return html.replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim();
   }
 
-  function estimateReadTime(text: string, label: string): string {
+  function estimateReadTime(text: string, label: string, override?: number): string {
+    if (override) return `${override} ${label}`;
     const words = stripHtml(text || '').split(/\s+/).filter(Boolean).length;
     const mins = Math.max(1, Math.round(words / 200));
     return `${mins} ${label}`;
@@ -111,6 +112,7 @@ const { t } = Astro.props;
       cover_image?: string;
       source?: string;
       tags?: string[];
+      readTimeMinutes?: number;
     }>) => {
       const articles = all.slice(0, 6);
       grid.innerHTML = articles.map((item) => {
@@ -148,7 +150,7 @@ const { t } = Astro.props;
               <div class="article-excerpt">${excerpt}</div>
               <div class="article-footer">
                 <span class="article-date">${formatDate(item.pubDate, locale)}</span>
-                <span class="article-readtime">${estimateReadTime(plain, minRead)}</span>
+                <span class="article-readtime">${estimateReadTime(plain, minRead, item.readTimeMinutes)}</span>
               </div>
             </div>
           </a>
