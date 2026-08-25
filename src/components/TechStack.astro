@@ -7,19 +7,73 @@ interface Props {
 
 const { t } = Astro.props;
 
-const techs = [
-  { name: 'Go',             logo: 'go',                  color: '00ADD8' },
-  { name: 'Java',           logo: 'openjdk',             color: 'ED8B00' },
-  { name: 'Spring+Boot',    logo: 'springboot',          color: '6DB33F' },
-  { name: 'PostgreSQL',     logo: 'postgresql',          color: '4169E1' },
-  { name: 'Redis',          logo: 'redis',               color: 'DC382D' },
-  { name: 'NATS',           logo: 'natsdotio',           color: '27AAE1' },
-  { name: 'gRPC',           logo: 'grpc',                color: '244c5a' },
-  { name: 'Ethereum',       logo: 'ethereum',            color: '3C3C3D' },
-  { name: 'Docker',         logo: 'docker',              color: '2496ED' },
-  { name: 'Kubernetes',     logo: 'kubernetes',          color: '326CE5' },
-  { name: 'GitHub+Actions', logo: 'githubactions',       color: '2088FF' },
-  { name: 'AWS',            logo: 'amazonwebservices',   color: '232F3E' },
+const stackGroups = [
+  {
+    label: 'Languages',
+    techs: [
+      { name: 'Go',             logo: 'go',                  color: '00ADD8' },
+      { name: 'TypeScript',     logo: 'typescript',          color: '3178C6' },
+      { name: 'JavaScript',     logo: 'javascript',          color: '323330' },
+      { name: 'Java',           logo: 'openjdk',             color: 'ED8B00' },
+      { name: 'Solidity',       logo: 'solidity',            color: '363636' },
+    ],
+  },
+  {
+    label: 'Frameworks & APIs',
+    techs: [
+      { name: 'Spring+Boot',    logo: 'springboot',          color: '6DB33F' },
+      { name: 'React',          logo: 'react',               color: '20232A' },
+      { name: 'Angular',        logo: 'angular',             color: 'DD0031' },
+      { name: 'Node.js',        logo: 'nodedotjs',           color: '339933' },
+      { name: 'GraphQL',        logo: 'graphql',             color: 'E10098' },
+      { name: 'gRPC',           logo: 'grpc',                color: '244c5a' },
+      { name: 'Ethereum',       logo: 'ethereum',            color: '3C3C3D' },
+    ],
+  },
+  {
+    label: 'Data',
+    techs: [
+      { name: 'PostgreSQL',     logo: 'postgresql',          color: '4169E1' },
+      { name: 'MySQL',          logo: 'mysql',               color: '4479A1' },
+      { name: 'MongoDB',        logo: 'mongodb',             color: '47A248' },
+      { name: 'Redis',          logo: 'redis',               color: 'DC382D' },
+      { name: 'Kafka',          logo: 'apachekafka',         color: '231F20' },
+      { name: 'NATS',           logo: 'natsdotio',           color: '27AAE1' },
+    ],
+  },
+  {
+    label: 'Cloud & Infra',
+    techs: [
+      { name: 'Docker',         logo: 'docker',              color: '2496ED' },
+      { name: 'Kubernetes',     logo: 'kubernetes',          color: '326CE5' },
+      { name: 'Terraform',      logo: 'terraform',           color: '844FBA' },
+      { name: 'GitHub+Actions', logo: 'githubactions',       color: '2088FF' },
+      { name: 'AWS',            logo: 'amazonwebservices',   color: '232F3E' },
+      { name: 'GCP',            logo: 'googlecloud',         color: '4285F4' },
+      { name: 'Azure',          logo: 'microsoftazure',      color: '0078D4' },
+    ],
+  },
+  {
+    label: 'Observability',
+    techs: [
+      { name: 'Datadog',        logo: 'datadog',             color: '632CA6' },
+      { name: 'New+Relic',      logo: 'newrelic',            color: '008C99' },
+      { name: 'Prometheus',     logo: 'prometheus',          color: 'E6522C' },
+      { name: 'Grafana',        logo: 'grafana',             color: 'F46800' },
+      { name: 'OpenTelemetry',  logo: 'opentelemetry',       color: '425CC7' },
+      { name: 'Kibana',         logo: 'kibana',              color: '005571' },
+    ],
+  },
+  {
+    label: 'AI',
+    techs: [
+      { name: 'Claude',         logo: 'claude',              color: 'D97757' },
+      { name: 'Grok',           logo: 'grok',                color: '000000' },
+      { name: 'GitHub+Copilot', logo: 'githubcopilot',       color: '181717' },
+      { name: 'OpenAI+Codex',   logo: 'openai',              color: '412991' },
+      { name: 'opencode',       logo: 'opencode',            color: '2D2D2D' },
+    ],
+  },
 ];
 ---
 
@@ -30,15 +84,22 @@ const techs = [
       <h2 class="section-title">{t.title}</h2>
       <div class="section-line"></div>
     </div>
-    <div class="stack-grid">
-      {techs.map((tech) => (
-        <img
-          class="tech-badge"
-          src={`https://img.shields.io/badge/${tech.name}-${tech.color}?style=for-the-badge&logo=${tech.logo}&logoColor=white`}
-          alt={tech.name.replace('+', ' ')}
-          loading="lazy"
-          height="28"
-        />
+    <div class="stack-groups">
+      {stackGroups.map((group) => (
+        <div class="stack-group">
+          <span class="stack-group-label">{group.label}</span>
+          <div class="stack-grid">
+            {group.techs.map((tech) => (
+              <img
+                class="tech-badge"
+                src={`https://img.shields.io/badge/${tech.name}-${tech.color}?style=for-the-badge&logo=${tech.logo}&logoColor=white`}
+                alt={tech.name.replace('+', ' ')}
+                loading="lazy"
+                height="28"
+              />
+            ))}
+          </div>
+        </div>
       ))}
     </div>
   </div>
@@ -47,6 +108,21 @@ const techs = [
 <style>
   section {
     padding-top: 80px;
+  }
+
+  .stack-groups {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+  }
+
+  .stack-group-label {
+    display: block;
+    font-size: 12px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-bottom: 8px;
   }
 
   .stack-grid {
