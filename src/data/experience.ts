@@ -10,17 +10,6 @@ export interface ExperienceEntry {
 
 export const experience: ExperienceEntry[] = [
   {
-    company: 'Sticker Mule',
-    role: 'Senior Software Engineer',
-    rolePt: 'Senior Software Engineer',
-    period: 'Jul 2026 - Present',
-    description:
-      'Part of a small, autonomous team building in Go, TypeScript, React, GraphQL, and Postgres on GCP, powering the model layer behind AI-powered features for an ecommerce platform used in 40+ countries.',
-    descriptionPt:
-      'Parte de um time pequeno e autonomo, construindo em Go, TypeScript, React, GraphQL e Postgres na GCP, sustentando a camada de modelo por tras de funcionalidades de IA para uma plataforma de ecommerce usada em 40+ paises.',
-    current: true,
-  },
-  {
     company: 'McGraw Hill Educational',
     role: 'Senior Engineer',
     rolePt: 'Senior Engineer',
