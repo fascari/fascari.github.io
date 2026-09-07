@@ -13,11 +13,22 @@ export const experience: ExperienceEntry[] = [
     company: 'McGraw Hill Educational',
     role: 'Senior Engineer',
     rolePt: 'Senior Engineer',
-    period: 'Sep 2024 - Jul 2026',
+    period: 'Sep 2024 - Present',
+    current: true,
     description:
       'Consolidated pricing rules from multiple internal sources into a single Go API, giving the commercial team one place to manage offer logic. Built with DDD and Clean Architecture. Designed serverless workflows on AWS (Lambda, Step Functions, SQS, SNS) to replace manual financial processes. Service runs at Apdex 0.99 with error rate under 0.5%. Also contributed to the Angular admin UI.',
     descriptionPt:
       'Consolidou regras de precificação de diversas fontes internas em uma API Go, dando ao time comercial um ponto para gerenciar a logica de ofertas. Construido com DDD e Clean Architecture. Projetou fluxos serverless na AWS (Lambda, Step Functions, SQS, SNS) substituindo processos financeiros manuais. Servico roda com Apdex 0.99 e taxa de erro abaixo de 0.5%. Tambem contribuiu para a interface Angular.',
+  },
+  {
+    company: 'xAI',
+    role: 'AI Expert Trainer',
+    rolePt: 'AI Expert Trainer',
+    period: 'Apr 2026 - Jun 2026 (Part-time, while at McGraw Hill)',
+    description:
+      'Part-time contract via micro1. Evaluated Go repositories and ranked model outputs from Grok and Claude Opus. Submitted original Go projects as evaluation benchmarks for model training data.',
+    descriptionPt:
+      'Contrato part-time via micro1. Avaliou repositorios Go e ranqueou saidas de Grok e Claude Opus. Enviou projetos Go originais como benchmarks de avaliacao para dados de treino.',
   },
   {
     company: 'Mercado Livre',
